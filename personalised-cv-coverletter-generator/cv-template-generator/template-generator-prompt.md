@@ -1,0 +1,184 @@
+# CV Template Generator Prompt
+
+Answer the questions below, then paste everything into Claude.
+Claude will generate a `cv-template.md` — the structural brief for your CV.
+The cv-generator uses this template to place content from your asset files.
+
+**How to use:**
+1. Answer the questions in the block below (replace the bracketed options with your choice)
+2. Optionally paste in your `brand-brief.md` and/or `job-brief.md`
+3. Paste everything into Claude
+4. Save the output as `cv-template.md` in your application folder
+
+---
+
+## Context Questions
+
+Answer each question before pasting.
+
+---
+
+**Q1: Will this CV be processed by an ATS (Applicant Tracking System)?**
+
+Pick one:
+- [ ] Yes — large company, job board application, or I know they use ATS
+- [ ] Probably — I'm not sure but want to be safe
+- [ ] No — direct referral, small company, creative/agency role, or portfolio-first field
+- [ ] Unknown
+
+---
+
+**Q2: What is the seniority level of the role?**
+
+Pick one:
+- [ ] Individual contributor / specialist (no people management)
+- [ ] Senior IC or team lead (technical authority, may mentor)
+- [ ] Manager (people manager, owns a team)
+- [ ] Director or above (organisational scope, strategy)
+
+---
+
+**Q3: What type of company is this?**
+
+Pick one:
+- [ ] Early-stage startup (under ~100 people)
+- [ ] Growth stage / scale-up
+- [ ] Enterprise or large public company
+- [ ] Agency or consultancy
+- [ ] Public sector or non-profit
+
+---
+
+**Q4: What CV structure fits this role?**
+
+Pick one:
+- [ ] Chronological — employment history first, accomplishments nested under each role
+- [ ] Skills / capabilities first — lead with what I can do, then support with roles
+- [ ] Hybrid — brief positioning statement, then chronological roles
+
+---
+
+**Q5: Target CV length?**
+
+Pick one:
+- [ ] 1 page — highly compressed, maximum impact per line
+- [ ] 2 pages — standard for experienced candidates
+- [ ] No strict limit — role expects depth (academic, technical lead, executive)
+
+---
+
+**Q6: What sections should be included?**
+
+Check all that apply:
+- [ ] Profile / positioning statement (2-4 lines at the top)
+- [ ] Core skills / competencies summary
+- [ ] Work experience (standard)
+- [ ] Key accomplishments / highlights (standalone section, separate from roles)
+- [ ] Education
+- [ ] Certifications or training
+- [ ] Languages
+- [ ] Publications or speaking
+- [ ] Portfolio or work samples (link)
+- [ ] Volunteer or advisory roles
+- [ ] Other: [specify]
+
+---
+
+**Q7: Anything to emphasise or de-emphasise?**
+
+Free text — e.g.:
+- "Emphasise the last 5 years, compress everything before 2018"
+- "Lead with technical depth, management experience is secondary for this role"
+- "Exclude exact dates — I'm returning from a career break"
+- "This is a board-adjacent role — titles and company names matter most"
+
+[YOUR NOTES HERE]
+
+---
+
+## Optional: Paste supporting files
+
+If you have these, paste them below. Claude will use them to inform the styling
+and section emphasis.
+
+**brand-brief.md** (from brand-inspector):
+[PASTE HERE — or delete this section]
+
+**job-brief.md** (from job-listing-analyzer):
+[PASTE HERE — or delete this section]
+
+---
+
+## The Generation Prompt
+
+Paste everything above into Claude, followed by this:
+
+---
+
+You are generating a CV template based on the context answers, and optionally
+a brand brief and job brief provided above.
+
+The template is not the CV itself. It is a structural brief that the cv-generator
+will use to populate content from a career asset library.
+
+Produce a `cv-template.md` with the following sections:
+
+**1. Template summary**
+One paragraph: what this template is optimised for and why.
+(e.g. "ATS-safe two-page chronological CV for a senior IC role at a scale-up.
+Skills-forward section order, dense evidence under each role, no graphics or tables.")
+
+**2. Page setup**
+- Column layout: single / two-column / hybrid (specify)
+- Margin guidance: standard (2.5cm) / narrow (1.5cm) / wide (3cm)
+- Line spacing: compact / standard / generous
+- ATS notes: any structural constraints to flag (no tables, no text boxes, etc.)
+
+**3. Header specification**
+What to include in the CV header, in order:
+- Full name (size/weight guidance)
+- Professional title or headline (include? wording guidance?)
+- Contact line (email / phone / LinkedIn / location — what to show and how)
+- Photo: include / exclude (note regional norms if relevant)
+- Any other header elements
+
+**4. Section list**
+The ordered list of sections for this CV, with the exact section heading to use:
+
+```
+1. [Section name] — [one line: what goes here]
+2. [Section name] — [one line: what goes here]
+...
+```
+
+**5. Per-section brief**
+For each section listed above:
+
+**[Section name]**
+- Format: bullets / prose / table / hybrid
+- Length: [e.g. "3-5 bullets per role", "2-4 lines of prose", "no more than 6 items"]
+- Emphasis: [what to prioritise — e.g. "lead with outcome, not task"]
+- Source in assets: [which asset file and field to draw from]
+- Notes: [any specific guidance for this section]
+
+**6. Visual parameters**
+
+*If brand-brief.md was provided:*
+- Header background color: [from brand palette]
+- Accent color (section titles, role titles, links): [specific suggestion]
+- Heading font: [name + weight]
+- Body font: [name + weight]
+- Overall density: [matches their brand profile]
+
+*If no brand-brief:*
+- Recommend a clean, neutral palette appropriate for the company type and role
+- Suggest Google Fonts pairing
+
+**7. cv-generator instructions**
+A short block of instructions to pass to the cv-generator, summarising:
+- Which asset clusters to prioritise (draw from job-brief if provided)
+- How many roles to include
+- How to handle gaps or older experience
+- Tone guidance for any prose sections
+
+Output the full `cv-template.md` as a single markdown document, ready to save.
