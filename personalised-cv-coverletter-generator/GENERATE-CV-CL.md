@@ -47,7 +47,11 @@ my explicit approval before proceeding to the next step. Do not skip ahead.
 
 Then ask: "What is your workspace path?" (e.g. `~/cv-workspace`)
 
-Wait for all three answers, then proceed.
+Wait for all three answers. Then create the application folder:
+`[workspace]/applications/[company]-[role]-[date]/`
+
+Use today's date for [date] in YYYYMMDD format. Use the company name and role title
+(lowercase, hyphens) to form the folder name. Confirm the folder path before proceeding.
 
 ---
 
@@ -135,7 +139,7 @@ If generating new: read `cv-template-generator/template-generator-prompt.md` and
 Save the generated template to `[workspace]/templates/cv/[TMPL-ID].md`.
 Show the template and ask: "Does this CV template look right? Reply **yes** to use it, or tell me what to change."
 
-Copy the chosen template to: `[workspace]/applications/[company]-[role]-[date]/[company]-cv-template.md`
+Copy the chosen template to: `[workspace]/applications/[company]-[role]-[date]/cv-template.md`
 Apply any brand color/font adaptations from the brand-brief now.
 
 ---
@@ -151,7 +155,7 @@ Ask: "Use existing CL template or generate new?"
 
 If generating new: run the generator. Show the template and ask: "Does this CL template look right? Reply **yes** to use it, or tell me what to change."
 
-Save chosen template to: `[workspace]/applications/[company]-[role]-[date]/[company]-cover-letter-template.md`
+Save chosen template to: `[workspace]/applications/[company]-[role]-[date]/cover-letter-template.md`
 
 ---
 
@@ -191,19 +195,37 @@ Fill in the file paths section using:
 
 Run all four phases, pausing at each gate for approval.
 
+The approved CV markdown must be saved to:
+`[workspace]/applications/[company]-[role]-[date]/YYYYMMDD_[surname]_[company]_cv.md`
+
+The final CV HTML must be saved to:
+`[workspace]/outputs/YYYYMMDD_[surname]_[company]_cv.html`
+
 ---
 
 ### STEP 8 — Generate the cover letter
 
 Read: `cover-letter-generator/cover-letter-generator-prompt.md`
 
-Fill in the file paths using the same application folder.
-Add:
+Fill in the file paths section using:
+- ASSETS_FOLDER: `[workspace]/assets/`
+- CL_TEMPLATE: `[workspace]/applications/[company]-[role]-[date]/cover-letter-template.md`
+- HTML_SKELETON: `[workspace]/applications/[company]-[role]-[date]/cl-output.html`
+- JOB_BRIEF: `[workspace]/applications/[company]-[role]-[date]/job-brief.md`
 - COMPANY_BRIEF: `[workspace]/applications/[company]-[role]-[date]/company-brief.md`
+- BRAND_BRIEF: `[workspace]/applications/[company]-[role]-[date]/brand-brief.md`
 - WRITING_STYLE: `[workspace]/writing-style.md` (if it exists — run cover-letter-template-generator/onboarding/writing-style-wizard.md first to create it)
 - PHRASE_LIBRARY: `[workspace]/phrase-library.md` (if it exists)
+- APPLICATION_FOLDER: `[workspace]/applications/[company]-[role]-[date]/`
+- OUTPUTS_FOLDER: `[workspace]/outputs/`
 
 Run all four phases, pausing at each gate for approval.
+
+The approved CL markdown must be saved to:
+`[workspace]/applications/[company]-[role]-[date]/YYYYMMDD_[surname]_[company]_cl.md`
+
+The final CL HTML must be saved to:
+`[workspace]/outputs/YYYYMMDD_[surname]_[company]_cl.html`
 
 ---
 
@@ -211,7 +233,10 @@ Run all four phases, pausing at each gate for approval.
 
 Read: `cv-and-cl-reviewer/reviewer-prompt.md`
 
-Use the approved `.md` files from Steps 7 and 8.
+Use the approved markdown files:
+- CV: `[workspace]/applications/[company]-[role]-[date]/YYYYMMDD_[surname]_[company]_cv.md`
+- CL: `[workspace]/applications/[company]-[role]-[date]/YYYYMMDD_[surname]_[company]_cl.md`
+
 Run all six personas and present the cross-persona priority summary.
 
 Ask: "Which recommendations would you like to apply?
