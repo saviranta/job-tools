@@ -110,7 +110,43 @@ Free text — e.g.:
 
 ---
 
-**Q8: Save to template library or use once?**
+**Q8: How much human character should be in the writing?**
+
+Check all that apply. These are deliberate techniques that make writing feel authored
+rather than generated. Select only what you're comfortable with — some are low-risk,
+some are context-dependent.
+
+*Low risk — almost always fine:*
+- [ ] Varying sentence lengths — mix of short punchy lines and longer flowing ones,
+      rather than uniformly medium-length sentences
+- [ ] Sentence starting with "And", "But", or "Because" — used once, intentionally,
+      for rhythm or emphasis
+- [ ] Em dash for a beat — "I've done this work — and I'd do it again." Used once or twice.
+- [ ] A parenthetical aside — (something said slightly off the main thread, in brackets)
+      signals a thinking, present person rather than a polished machine
+
+*Medium risk — depends on company and role:*
+- [ ] One sentence that runs slightly long — the kind you write when you're genuinely
+      into what you're saying; reads as enthusiasm, not sloppiness
+- [ ] Informal contraction in an unexpected place — "That's" instead of "That is" mid-paragraph,
+      or "I've" where a very formal letter might say "I have"
+- [ ] Conversational word in an otherwise professional sentence — one "actually", "honestly",
+      or "quite" that loosens the register without breaking it
+
+*Higher risk — use with judgement:*
+- [ ] 1–2 minor typographic imperfections — a transposition ("teh" → "the") or a
+      doubled word caught-but-left ("I have have"), the kind that slips through
+      a personal proofread. **Avoid for roles where precision is the product
+      (legal, finance, editorial, QA).**
+- [ ] One comma splice — two independent clauses joined by a comma rather than a
+      semicolon or conjunction. Very common in confident human writing, occasionally
+      jarring to copy editors.
+- [ ] Oxford comma inconsistency — used in most lists, dropped in one.
+      Subtle, but a real human fingerprint.
+
+---
+
+**Q9: Save to template library or use once?**
 
 - [ ] Save to library — I'll reuse this structure for similar applications
 - [ ] One-off — this context is unusual
@@ -154,7 +190,7 @@ supporting files provided.
 The template is not the letter itself. It is a structural and tonal brief that the
 cover-letter-generator uses alongside the career asset library and writing-style.md.
 
-Generate a template ID from the name given in Q8 (uppercase with hyphens):
+Generate a template ID from the name given in Q9 (uppercase with hyphens):
 e.g. `narrative-motivation-fit` → `TMPL-CL-NARRATIVE-MOTIVATION-FIT`.
 If one-off, use `TMPL-CL-ONEOFF`.
 
@@ -174,6 +210,7 @@ closing: call-to-action / availability / warm-signoff / salary / availability-an
 tone: formal / professional-warm / direct / conversational
 domain: [from Q6]
 expertise: [from Q6]
+human_character: [comma-separated list of selected Q8 options, or "none"]
 created: [today's date]
 ---
 ```
@@ -231,13 +268,44 @@ Based on writing-style.md (if provided) and Q5 tone selection:
 - Any tension between the brand-brief tone and the user's natural voice — and how to resolve it
 - 2-3 example sentence openers that fit this template's tone
 
-**4. What not to include**
+**4. Human character instructions**
 
-Based on Q2 (what was NOT selected) and Q7 (exclusions):
+Based on Q8 selections, produce a specific instruction list for the cover-letter-generator.
+Be precise — not "vary sentence length" but "include at least two sentences under 8 words
+and at least one sentence over 25 words in the body paragraphs."
+
+For each selected technique, write one concrete instruction:
+
+- *Varying sentence lengths* → "Body paragraphs must contain at least one sentence under
+  8 words and one over 25 words. Do not make all sentences 15–20 words."
+- *Sentence starting with And/But/Because* → "One sentence, in [section], may start with
+  'And' or 'But'. Use once only."
+- *Em dash* → "Use one em dash for rhythm or emphasis, in [section]. Not in the opening line."
+- *Parenthetical aside* → "Include one parenthetical (in brackets) in [section].
+  Should feel like a thinking-out-loud moment, not a disclaimer."
+- *One long sentence* → "One sentence in [section] may run 35–45 words — the kind that
+  builds as it goes. Should read as enthusiasm, not padding."
+- *Informal contraction* → "Use one informal contraction in [section] where a very formal
+  letter would avoid it. E.g. 'That's' instead of 'That is'."
+- *Conversational word* → "One instance of 'actually', 'honestly', or 'quite' in [section].
+  Single use only."
+- *Minor typographic imperfection* → "Introduce one transposition-type error (e.g. 'teh',
+  'adn') in a non-critical word in [section]. Not in the opening sentence, a proper noun,
+  or a number."
+- *Comma splice* → "One comma splice is permitted in [section] — two short independent
+  clauses joined by a comma, where a semicolon would be technically correct."
+- *Oxford comma inconsistency* → "Use the Oxford comma throughout, but drop it in one list."
+
+If no Q8 options were selected: "Write with consistent, clean, polished prose throughout.
+No deliberate imperfections."
+
+**5. What not to include**
+
+Based on Q2 (what was NOT selected) and Q7 (exclusions) and Q8 (higher-risk options NOT selected):
 - Sections or themes to omit entirely
 - Phrases or framings to avoid for this specific application
 
-**5. cover-letter-generator instructions**
+**6. cover-letter-generator instructions**
 
 A block to pass directly to the cover-letter-generator:
 - Which asset clusters to prioritise (from job-brief if provided)
