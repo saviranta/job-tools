@@ -42,20 +42,60 @@ Run `GENERATE-CV-CL.md` (or trigger `/generate-application` if you've set it up 
 ## System overview
 
 ```
-asset-setup/                    Career asset library templates and onboarding
-job-listing-analyzer/           Analyse job listings and company websites
-brand-inspector/                Decode company visual and tone identity
-cv-template-generator/          Design CV structure for different contexts
+asset-setup/                     Career asset library templates and onboarding
+job-listing-analyzer/            Analyse job listings and company websites
+brand-inspector/                 Decode company visual and tone identity
+cv-template-generator/           Design CV structure for different contexts
 cover-letter-template-generator/ Design cover letter structure and voice profile
-output-html-style-generator/    Generate branded HTML/CSS output skeletons
-cv-generator/                   Generate tailored CV (4 phases, human-reviewed)
-cover-letter-generator/         Generate tailored cover letter (4 phases, human-reviewed)
-cv-and-cl-reviewer/             Six-persona review with prioritised feedback
+output-html-style-generator/     Generate branded HTML/CSS output skeletons
+cv-generator/                    Generate tailored CV (4 phases, human-reviewed)
+cover-letter-generator/          Generate tailored cover letter (4 phases, human-reviewed)
+cv-and-cl-reviewer/              Six-persona review with prioritised feedback
+eval/                            Mechanical checks and qualitative eval prompt
 ```
 
 **Workflow files at root:**
 - `SETUP.md` — first-time workspace setup
 - `GENERATE-CV-CL.md` — full application generation workflow
+
+**Session break points** are built into the workflow. The full run can be split across
+sessions: the application folder with all brief and template files is saved at each
+break point so you can resume without losing context.
+
+---
+
+## Asset library
+
+Your career data lives in five files in your workspace `assets/` folder:
+
+| File | Contents |
+|------|----------|
+| `work_experience.md` | Role history with unique role IDs (ROLE-001, etc.) |
+| `capabilities.md` | Capability and accomplishment entries, tagged and cross-referenced. Split into an INDEX (for fast Phase 1 selection) and ENTRIES (full content, loaded by CAP-ID in Phase 2) |
+| `competency_clusters.md` | Grouped skill areas with trigger keywords for job ad matching |
+| `qualities_workstyle.md` | Working style, leadership approach, personal attributes |
+| `profiles.md` | Positioning statements for different target contexts |
+
+Assets are the single source of truth. The generators draw content only from these
+files — nothing is invented. Metrics are used verbatim.
+
+---
+
+## Eval and tracing
+
+Every completed application saves a `trace.md` to its folder: templates used, capabilities
+selected, keyword hit rate, iteration counts, and guardrail results.
+
+Two optional eval tools run post-generation:
+
+**`eval/eval.py`** — mechanical checks (run any time, no prompting needed):
+- Keyword coverage: how many job-brief keywords appear in the CV and CL
+- Citation integrity: source comments in the CV traced back to real asset entries
+- Metric integrity: numbers in CV bullets verified against asset entries verbatim
+
+**`eval/eval-prompt.md`** — qualitative eval (paste into Claude Code):
+- Positioning fit, evidence prominence, company paragraph specificity, claim-to-evidence balance
+- Scores 1–3 per rubric; 10–12 total = ready to send
 
 ---
 
@@ -85,15 +125,21 @@ material in any language.
 ## Design principles
 
 - **Assets as source of truth** — all CV and CL content is drawn from your asset library.
-  Nothing is invented. Metrics are used verbatim.
+  Nothing is invented. Metrics are used verbatim. Source citations are embedded in every
+  CV bullet so the trail back to the asset is always traceable.
 - **Human approval at every gate** — no file is saved without explicit confirmation.
   Asset files require the phrase "update assets" to write.
-- **Reusable templates and styles** — CV templates, CL templates, and HTML styles accumulate
-  in a library. The selector checks the library before generating new.
+- **Lazy asset loading** — capabilities are indexed separately from their full content.
+  Phase 1 reads only the index to score and shortlist entries; Phase 2 loads only the
+  selected entries. This keeps context lean without sacrificing quality.
+- **Reusable templates and styles** — CV templates, CL templates, and HTML styles
+  accumulate in a library. The selector checks the library before generating new.
 - **Six-persona review** — ATS, HR Recruiter, Hiring Manager, Role Expert, CEO/CFO/Legal,
   Narrative Copywriter. Contradictory recommendations are surfaced before applying.
 - **Workspace separation** — this repo contains tools only. Your personal data
   (assets, templates, applications, outputs) lives in your workspace, never here.
+- **Eval by default** — every run produces a trace log. Mechanical checks and a
+  qualitative eval prompt are available for post-generation integrity checking.
 
 ---
 
@@ -103,18 +149,23 @@ material in any language.
 personalised-cv-coverletter-generator/
 ├── SETUP.md
 ├── GENERATE-CV-CL.md
-├── README.md                       ← you are here
+├── README.md                        ← you are here
 ├── asset-setup/
 │   ├── QUICKSTART.md
-│   ├── assets/                     ← five .template.md files
-│   ├── onboarding/                 ← linkedin, pdf, and quickstart prompts
-│   └── maintenance/                ← quick-add and update-guide prompts
+│   ├── assets/                      ← five .template.md files
+│   ├── onboarding/                  ← linkedin, pdf, and quickstart prompts
+│   └── maintenance/                 ← quick-add and update-guide prompts
 ├── job-listing-analyzer/
 ├── brand-inspector/
 ├── cv-template-generator/
 ├── cover-letter-template-generator/
+│   └── onboarding/                  ← writing-style wizard
 ├── output-html-style-generator/
 ├── cv-generator/
 ├── cover-letter-generator/
-└── cv-and-cl-reviewer/
+├── cv-and-cl-reviewer/
+└── eval/
+    ├── eval.py                      ← mechanical checks script (Python, stdlib only)
+    ├── eval-prompt.md               ← qualitative eval prompt
+    └── README.md
 ```
