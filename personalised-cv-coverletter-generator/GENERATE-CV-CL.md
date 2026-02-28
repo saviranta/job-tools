@@ -264,6 +264,52 @@ Confirm both files are saved in `[workspace]/outputs/`:
 - `YYYYMMDD_[surname]_[company]_cv.html`
 - `YYYYMMDD_[surname]_[company]_cl.html`
 
+**Save trace log**
+
+Save `trace.md` to the application folder. Fill each field from information in context.
+Write `[not recorded]` for anything not available in this session.
+
+```markdown
+# Trace — YYYYMMDD_[surname]_[company]
+
+## Run metadata
+Date:        [today YYYYMMDD]
+Role:        [title from job-brief]
+Company:     [company name]
+Seniority:   [level from job-brief — IC / lead / manager / director+]
+
+## Templates and styles used
+CV template:    [TMPL-ID — or "generated new"]
+CL template:    [TMPL-ID — or "generated new"]
+HTML style:     [STYLE-ID — or "generated new"]
+
+## Asset selections
+Profile used:   [PROF-N and name]
+Positioning:    [1-sentence angle from job-brief]
+CAP-IDs used:   [comma-separated list from CV Phase 1 shortlist]
+
+## Keyword coverage
+Hit rate:  [N/M keywords present in CV and CL]
+Missing:   [list — or "none"]
+
+## Phase iterations
+CV Phase 2 (markdown):    [N iterations before approved]
+CL Phase 2 (markdown):    [N iterations before approved]
+Reviewer items applied:   [item numbers — or "none"]
+
+## Guardrail results
+Asset quality:     [OK / WARNING]
+Cross-references:  [OK / BROKEN]
+ATS vs layout:     [OK / CONFLICT]
+Content vs length: [OK / OVER]
+
+## Eval
+Run mechanical checks:
+  python eval/eval.py [workspace]/applications/[company]-[role]-[date]/ [workspace]/assets/
+Run qualitative eval:
+  Read eval/eval-prompt.md from <!-- BEGIN PROMPT --> and follow instructions.
+```
+
 Tell me:
 
 ```
@@ -284,6 +330,10 @@ TO EXPORT AS PDF:
 
 Application folder: applications/[company]-[role]-[date]/
   All working files, briefs, and templates are saved here.
+
+OPTIONAL EVAL:
+  Mechanical: python eval/eval.py applications/[company]-[role]-[date]/ assets/
+  Qualitative: read eval/eval-prompt.md
 ═══════════════════════════════════════════════
 ```
 
