@@ -49,7 +49,44 @@ Pick one:
 
 ---
 
-**Q4: What CV structure fits this role?**
+**Q4: What industry or domain is this role in?**
+
+Pick one (or write your own):
+- [ ] Technology / software / SaaS
+- [ ] Fintech / financial services / banking
+- [ ] Healthcare / medtech / biotech
+- [ ] Retail / e-commerce / consumer
+- [ ] Media / publishing / content
+- [ ] Manufacturing / industrials / logistics
+- [ ] Public sector / government / NGO
+- [ ] Education / research / academia
+- [ ] Professional services / consulting / legal
+- [ ] Other: [specify]
+
+---
+
+**Q5: What is the primary area of expertise this role sits in?**
+
+Check all that apply (most roles have a primary + 1-2 secondary):
+- [ ] Engineering / software development / technical
+- [ ] Product management / product design
+- [ ] Data / analytics / data science / ML
+- [ ] Sales / business development / revenue
+- [ ] Marketing / growth / brand / content
+- [ ] Customer success / support / account management
+- [ ] Operations / project management / programme delivery
+- [ ] Strategy / consulting / business analysis
+- [ ] Finance / accounting / commercial
+- [ ] People / HR / talent / organisational design
+- [ ] Research / UX research / user insight
+- [ ] Design / creative / UX/UI
+- [ ] Legal / compliance / risk
+- [ ] Leadership / general management (cross-functional)
+- [ ] Other: [specify]
+
+---
+
+**Q6: What CV structure fits this role?**
 
 Pick one:
 - [ ] Chronological — employment history first, accomplishments nested under each role
@@ -58,7 +95,7 @@ Pick one:
 
 ---
 
-**Q5: Target CV length?**
+**Q7: Target CV length?**
 
 Pick one:
 - [ ] 1 page — highly compressed, maximum impact per line
@@ -67,7 +104,7 @@ Pick one:
 
 ---
 
-**Q6: What sections should be included?**
+**Q8: What sections should be included?**
 
 Check all that apply:
 - [ ] Profile / positioning statement (2-4 lines at the top)
@@ -84,7 +121,7 @@ Check all that apply:
 
 ---
 
-**Q7: Anything to emphasise or de-emphasise?**
+**Q9: Anything to emphasise or de-emphasise?**
 
 Free text — e.g.:
 - "Emphasise the last 5 years, compress everything before 2018"
@@ -125,8 +162,10 @@ Produce a `cv-template.md` with the following sections:
 
 **1. Template summary**
 One paragraph: what this template is optimised for and why.
-(e.g. "ATS-safe two-page chronological CV for a senior IC role at a scale-up.
-Skills-forward section order, dense evidence under each role, no graphics or tables.")
+Include: ATS status, seniority, company type, industry domain, and primary expertise area.
+(e.g. "ATS-safe two-page chronological CV for a senior product manager role in fintech,
+targeting a scale-up. Skills-forward section order, dense evidence under each role,
+metrics-led bullets, no graphics or tables.")
 
 **2. Page setup**
 - Column layout: single / two-column / hybrid (specify)
@@ -174,11 +213,21 @@ For each section listed above:
 - Recommend a clean, neutral palette appropriate for the company type and role
 - Suggest Google Fonts pairing
 
-**7. cv-generator instructions**
+**7. Domain and expertise calibration**
+Based on the industry domain (Q4) and expertise area(s) (Q5), note:
+- What evidence types are most valued in this domain (metrics / case studies / technical depth / client outcomes / publications / portfolio)
+- Which sections or bullet patterns are conventional for this expertise area
+  (e.g. sales roles lead with quota attainment and pipeline numbers; engineering roles
+  lead with technical scope and system impact; research roles may foreground methodology)
+- Any domain-specific conventions to follow or avoid
+  (e.g. academic CVs use different structures; creative roles may expect a portfolio link above the fold)
+
+**8. cv-generator instructions**
 A short block of instructions to pass to the cv-generator, summarising:
 - Which asset clusters to prioritise (draw from job-brief if provided)
 - How many roles to include
 - How to handle gaps or older experience
+- What evidence type to lead with, given the domain and expertise area
 - Tone guidance for any prose sections
 
 Output the full `cv-template.md` as a single markdown document, ready to save.
