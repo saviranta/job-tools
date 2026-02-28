@@ -30,7 +30,7 @@ Paste into Claude Code:
 You are setting up a personal CV and cover letter workspace.
 
 Ask me one question first: **"Where would you like your personal workspace folder?
-Give me the full path, or I'll create it at `~/cv-workspace` by default."**
+Give me the full path (e.g. `~/Documents/job-search`), or I'll create it at `~/cv-workspace` by default."**
 
 Wait for my answer, then proceed.
 
@@ -74,11 +74,24 @@ Confirm each file was copied.
 
 ---
 
-### Step 3: Copy phrase library template
+### Step 3: Copy phrase library template and create writing style file
 
 ```
 cover-letter-template-generator/phrase-library/phrase-library.template.md
   → [workspace]/phrase-library.md
+```
+
+Also create an empty placeholder:
+
+```
+[workspace]/writing-style.md
+```
+
+with this content:
+
+```markdown
+# Writing Style
+<!-- To be filled in via cover-letter-template-generator/onboarding/writing-style-wizard.md -->
 ```
 
 ---
@@ -101,7 +114,8 @@ assets/                 ← fill these in — they're the foundation of everythi
   profiles.md           ← positioning statements per target context
 
 archive/pre-gen/        ← drop old CVs and cover letters here (PDF or Word)
-                           the parsers in asset-setup/onboarding/ will read them
+                           CV parser → populates your asset files
+                           CL parser → bootstraps writing-style.md and phrase-library.md
 
 templates/              ← CV and cover letter templates build up here over time
                            the first one gets generated during your first application
@@ -113,6 +127,9 @@ applications/           ← one folder per job (company-role-date)
 
 phrase-library.md       ← phrases that work for you, organised by CL section
                            starts empty — builds as you write cover letters
+
+writing-style.md        ← your voice profile (tone, vocabulary, red flags)
+                           fill in via cover-letter-template-generator/onboarding/
 ═══════════════════════════════════════════════
 ```
 
@@ -124,6 +141,7 @@ Tell me:
 
 ```
 Next step: fill in your asset files.
+This takes 30–60 minutes and only needs to happen once.
 
 Open asset-setup/QUICKSTART.md — it explains all the ways to get started
 (existing CV, LinkedIn profile, or from scratch) and links to the right
@@ -141,11 +159,4 @@ WHEN YOU HAVE A JOB TO APPLY FOR:
 → Run GENERATE-CV-CL.md (the main workflow)
   Takes a job URL + company URL → produces HTML CV and cover letter
 
-WHEN YOU WANT TO IMPROVE YOUR ASSETS:
-→ Run IMPROVER.md
-  Targeted improvements — only touches what you ask about
-
-EVERY FEW MONTHS:
-→ Run asset-setup/maintenance/review-prompt.md
-  Full audit of your assets with prioritised gaps
 ```
