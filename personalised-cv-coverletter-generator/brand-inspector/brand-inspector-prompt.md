@@ -157,4 +157,11 @@ If you found any of the following, note them for use in the cv-template-generato
 - Design system URL
 - Brand guidelines PDF link
 
+**Source integrity rule:**
+If any page was unavailable, gated, or only partially loaded during browsing,
+mark the affected section with `[INFERRED — verify]` rather than filling it from
+assumptions. For colors and fonts specifically: only report hex values or font names
+you can directly observe (from CSS, press kit, or brand guidelines). If you cannot
+confirm them, give a descriptive approximation and mark it `[ESTIMATED]`.
+
 Output this as a structured markdown document I can save as `brand-brief.md`.

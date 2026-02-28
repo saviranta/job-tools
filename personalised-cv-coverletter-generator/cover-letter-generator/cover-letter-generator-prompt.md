@@ -159,6 +159,8 @@ Read and hold in context:
 - Each bullet maps to one emphasis area (in priority order from cl-template)
 - Bullet format: outcome or claim first, evidence second, 1-2 lines each
 - Draw evidence from capabilities.md entries — lead with the metric or result
+- Metrics rule: use metrics exactly as they appear in the source entry. Do not round,
+  extrapolate, or improve them. If no metric exists, describe the outcome without one.
 - Mirror keywords naturally across the three bullets — not all in one
 
 **narrative (body paragraphs):**
@@ -170,10 +172,14 @@ Read and hold in context:
 
 *Company connection paragraph (all styles except short-bold):*
 - Draw from company-brief connection points — use 1-2 specific references
+- Every specific claim in this paragraph must be traceable to a named item in
+  company-brief.md. Do not speculate about challenges, initiatives, or priorities
+  not documented there.
 - One of: reference a product decision, initiative, published piece, or stated value
 - Connect it to your own experience or perspective — not just praise
 - If "constructive company insight" was selected in emphasis: this is where it lives —
-  name the challenge you've noticed and connect it to what you bring
+  name only a challenge explicitly documented in company-brief, and connect it to
+  what you bring. Do not infer or fabricate company problems.
 - Use vocabulary from company-brief values language section
 - Do not: use generic superlatives ("incredible mission", "innovative company")
 

@@ -123,4 +123,9 @@ List 3-5 connection points, each with a suggested one-liner for how to use it.
 - Glassdoor signals, recent layoffs, leadership changes, funding pressure (if visible)?
 - Note these for my awareness — not necessarily to address in the application.
 
+**Source integrity rule:**
+If any page was unavailable, gated, or only partially loaded during browsing,
+mark the affected section with `[INFERRED — verify]` rather than filling it from
+assumptions. Do not present inferred content as if it were read directly from the site.
+
 Output this as a structured markdown document I can save as `company-brief.md`.

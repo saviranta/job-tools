@@ -112,7 +112,10 @@ given my evidence? This is the core argument the cover letter should build aroun
 
 **8. Gaps and reframes**
 - What does the job ask for that is weak or absent in my assets?
-- For each gap: is it a real gap, or can it be reframed from existing evidence?
-- Suggest a reframe where possible.
+- For each gap: is it a real gap, or is there existing evidence in the assets that
+  genuinely addresses it from a different angle?
+- A reframe means finding real evidence that covers the gap — not implying a capability
+  that doesn't exist. If the gap is real, say so clearly rather than forcing a reframe.
+- Suggest a reframe only where specific supporting evidence exists in the assets.
 
 Output this as a structured markdown document I can save as `job-brief.md`.

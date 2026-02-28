@@ -103,8 +103,18 @@ CLUSTERS TO PRIORITISE
 
 CAPABILITIES SHORTLIST
   [N] entries selected from capabilities.md
-  Strongest evidence: [top 3 titles]
-  Thin evidence flagged: [any gaps noted in job-brief]
+
+  Will draw from:
+  [ROLE-ID] [Role title]:
+    • [capability entry title] — [CAP-ID if present]
+    • [capability entry title] — [CAP-ID if present]
+    [repeat for each role being included]
+
+  Thin evidence (will omit or frame directionally):
+    • [entry title] — [reason: no metric / vague outcome / thin scope]
+
+  Not drawing from (out of scope for this application):
+    • [entry title]
 
 KEYWORDS TO MIRROR
   [list from job-brief keywords section]
@@ -136,6 +146,8 @@ Save it to the application folder.
 *Profile / positioning statement*
 - Draw from the recommended profile in profiles.md
 - Rewrite the opening to embed the job-brief positioning angle
+- The rewrite must stay within the language and claims present in the source profile.
+  Do not add roles, outcomes, or capabilities not stated in profiles.md.
 - Mirror 2-3 keywords from the job-brief keywords list
 - Match the cv-template per-section length guidance
 
@@ -149,6 +161,14 @@ Save it to the application folder.
 - Bullets drawn exclusively from capabilities.md entries matching that role's ID,
   filtered by the job-brief capability shortlist
 - Each bullet: lead with outcome or impact, not the task
+- After each bullet, append a hidden source comment: `<!-- source: [entry title] -->`
+  These are stripped in Phase 3 and must not appear in the HTML output.
+- Metrics rule: use metrics exactly as they appear in the source entry. Do not round,
+  extrapolate, combine, or improve them. If no metric exists in the source, describe
+  the outcome without one — do not invent a number.
+- Thin evidence rule: if job-brief flags an entry as thin evidence, either omit the
+  bullet or frame it directionally ("experience with X", not "led X achieving Y").
+  Do not write a confident claim on weak evidence.
 - Mirror job-brief keywords naturally — do not force them
 - No repeated opening verb across bullets in the same role
 - Length: match the cv-template per-section bullet guidance
