@@ -1,0 +1,155 @@
+# ===================
+# job-tools .gitignore
+# Agentic tools for job search and applications
+# Strict: no credentials, no personal data, no collected data
+# ===================
+
+# ----- Credentials & Secrets -----
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+secrets/
+credentials/
+*api_key*
+*apikey*
+*access_token*
+*secret_key*
+service_account*.json
+*_credentials.json
+*_secret*.json
+auth_token*
+token.json
+oauth*.json
+config.local.*
+.netrc
+.htpasswd
+mcp-auth*
+mcp-needs-auth*
+.openai
+.anthropic
+
+# ----- Personal & Persona Data -----
+# The tools live here; your personal data does not
+# Career assets
+assets/work_experience.*
+assets/capabilities*
+assets/accomplishments*
+assets/motivators.*
+assets/profiles.*
+assets/personality*
+assets/writing_style.*
+assets/education.*
+assets/languages.*
+assets/coverletter_phrases.*
+assets/qualities*
+assets/contact.*
+personal/
+persona/
+private/
+*_personal.*
+*_private.*
+
+# Application outputs (contain personal narrative and private info)
+output/
+outputs/
+applications/
+generated/
+drafts/
+
+# Personal documents
+*.pdf
+!docs/**/*.pdf
+!examples/**/*.pdf
+
+# Personal images and photos
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+!docs/**/*.png
+!docs/**/*.jpg
+!examples/**/*.png
+
+# Job search tracking (personal data)
+linkedin_*.md
+jobad.*
+jobs_applied/
+job_tracker.*
+applied.*
+
+# ----- Collected & Proprietary Data -----
+# No scraped, purchased, or collected data in this repo
+*.db
+*.sqlite
+*.sqlite3
+data/raw/
+data/collected/
+data/scraped/
+data/personal/
+*.csv
+*.parquet
+*.feather
+*.pkl
+*.pickle
+db_config*
+*_dump.sql
+*.backup
+
+# ----- OS & Editor -----
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+.idea/
+.vscode/settings.json
+.vscode/launch.json
+*.swp
+*.swo
+*~
+
+# ----- Dependencies -----
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ----- Build & Cache -----
+dist/
+build/
+.next/
+.nuxt/
+*.log
+.cache/
+.langchain/
+__llm_cache__/
+tmp/
+temp/
+scratch/
+
+# ----- LLM Artifacts -----
+*.bin
+*.gguf
+*.safetensors
+*.onnx
+models/
+checkpoints/
+*.faiss
+chroma_db/
+vector_store/
