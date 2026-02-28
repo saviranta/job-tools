@@ -164,4 +164,8 @@ assumptions. For colors and fonts specifically: only report hex values or font n
 you can directly observe (from CSS, press kit, or brand guidelines). If you cannot
 confirm them, give a descriptive approximation and mark it `[ESTIMATED]`.
 
+**Language rule:**
+All output must be in English. Translate any non-English brand copy or values language
+to English before recording it. Note the original language in brackets where relevant.
+
 Output this as a structured markdown document I can save as `brand-brief.md`.

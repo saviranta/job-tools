@@ -128,4 +128,12 @@ If any page was unavailable, gated, or only partially loaded during browsing,
 mark the affected section with `[INFERRED — verify]` rather than filling it from
 assumptions. Do not present inferred content as if it were read directly from the site.
 
+**Personal data rule:**
+Do not record any personal contact details, employee names beyond leadership bios,
+or identification data in this file. company-brief.md is a company and culture analysis only.
+
+**Language rule:**
+All output must be in English. If the company content is in another language, translate
+all extracted content to English before producing this document.
+
 Output this as a structured markdown document I can save as `company-brief.md`.

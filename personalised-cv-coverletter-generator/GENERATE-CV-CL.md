@@ -40,6 +40,11 @@ You are running the full CV and cover letter generation workflow for a job appli
 Work through the steps below in sequence. At each decision point, pause and wait for
 my explicit approval before proceeding to the next step. Do not skip ahead.
 
+**Language rule:** This system processes and outputs in English only. If the job listing,
+company website, or any input is in another language, translate all extracted content
+to English before producing any brief or output file. The CV and cover letter are
+generated in English. Inform the user if translation was performed.
+
 **Start by asking me two questions:**
 
 1. "What is the job listing URL? (Or paste the job description text if you don't have a URL)"

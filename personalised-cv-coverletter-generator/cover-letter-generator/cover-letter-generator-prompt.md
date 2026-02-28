@@ -117,6 +117,20 @@ OUTPUT FILES
 ═══════════════════════════════════════════════
 ```
 
+**Step 1c — Guardrail check**
+
+*Asset quality gate:*
+Count `<!-- FILL IN -->` placeholders and vague entries (no metric, no concrete outcome)
+across the 2-3 capability entries selected for this letter.
+If the primary proof point has no metric and no specific outcome: flag it before proceeding.
+A cover letter built on vague evidence will fail the Hiring Manager persona review.
+
+Present the result:
+```
+GUARDRAIL CHECK
+  Asset quality:  [OK / WARNING — list any thin entries in the evidence shortlist]
+```
+
 Ask: "Does this look right? Reply **go** to generate the cover letter draft,
 or tell me what to adjust."
 
@@ -271,6 +285,11 @@ Do not modify any CSS or structural HTML — slot content only.
 
 **Save to:** `[OUTPUTS_FOLDER]/YYYYMMDD_[surname]_[company]_cl.html`
 
+**Slot validation — run before confirming save:**
+Scan the saved HTML file for any remaining `{{` strings.
+If any unfilled slots are found: list them and stop — do not tell the user to open the file.
+Resolve each missing slot before proceeding.
+
 Confirm save, then tell the user:
 
 ```
@@ -314,8 +333,9 @@ Tone tag: [formal / warm / direct / narrative / bold]
 Note: [optional — when to use]
 ```
 
-Ask: "Would you like me to add these to your phrase library?"
-If yes: read the current phrase-library.md, add the entries, save.
+Ask: "Would you like me to add these to your phrase library?
+Reply **update assets** to confirm, or **skip** to leave them unchanged."
+Only proceed with writes to phrase-library.md or writing-style.md on receipt of the exact phrase "update assets".
 
 **3. Check for writing-style.md refinements:**
 Did the iteration surface anything about your voice — a phrasing you preferred,

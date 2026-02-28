@@ -394,6 +394,19 @@ You can say:
 
 Or describe specific changes you want to make and I'll guide you to the right place."
 
+**Before applying: check for contradictions between selected items.**
+If two selected recommendations conflict with each other (e.g. ATS says add a keyword that the Copywriter flagged as a cliché; HR Recruiter wants shorter bullets that the Hiring Manager wants expanded with more evidence), surface the conflict explicitly:
+
+```
+CONFLICT DETECTED
+  Item [N] and Item [M] contradict each other:
+  [N]: [what it recommends]
+  [M]: [what it recommends]
+  Which takes priority for this application?
+```
+
+Wait for the user to resolve any conflicts before proceeding.
+
 For each chosen recommendation, provide:
 - The exact text to find in the `.md` file
 - The replacement text

@@ -128,9 +128,42 @@ OUTPUT FILES
 ═══════════════════════════════════════════════
 ```
 
+**Step 1c — Guardrail checks**
+
+Run all four checks silently, then present findings before the approval gate.
+
+*Asset quality gate:*
+Count `<!-- FILL IN -->` placeholders and vague capability entries (no metric and no concrete outcome — entries containing only words like "improved", "supported", "helped" with nothing quantified) across the capabilities selected for this application.
+If more than 30% of selected entries are unfilled or vague: flag this as a warning — the CV may be thin. List which entries are affected and suggest either strengthening them first or excluding them.
+
+*Cross-reference integrity:*
+Verify that every role ID referenced in the selected capabilities entries exists in work_experience.md.
+Verify that every cluster in the top-ranked shortlist has at least one matching capability entry.
+If any reference is broken: list it and stop — do not proceed until resolved.
+
+*ATS vs layout conflict:*
+If the cv-template has `ats: yes` or `ats: probably` AND the layout is two-column: flag this as a conflict. Two-column layouts are frequently misread by ATS parsers. Ask the user to choose: prioritise ATS safety (switch to single-column) or keep the design (accept ATS risk).
+
+*Template length vs content estimate:*
+Estimate: given the number of roles included, bullets per role from the cv-template guidance, and sections selected, will the content fit the template's page target?
+If the estimate is materially over (e.g. 3-page content in a 1-page template): flag it and suggest either compressing roles or relaxing the page constraint before generation.
+
+Present the results:
+
+```
+GUARDRAIL CHECKS
+  Asset quality:        [OK / WARNING — N entries thin or unfilled: list]
+  Cross-references:     [OK / BROKEN — list broken references]
+  ATS vs layout:        [OK / CONFLICT — describe]
+  Content vs length:    [OK / OVER — estimate and suggestion]
+```
+
+If any check produces a BROKEN or CONFLICT result: do not proceed. Resolve first.
+If WARNING results only: the user may still reply **go** to proceed with awareness.
+
 Then ask:
-"Does this selection look right? Reply **go** to generate the CV draft,
-or tell me what to adjust."
+"Does this selection look right and are you happy with the guardrail results?
+Reply **go** to generate the CV draft, or tell me what to adjust."
 
 ---
 
@@ -216,6 +249,11 @@ Read the approved `YYYYMMDD_[surname]_[company]_cv.md` and the `cv-output.html` 
 **Save the completed file** to:
 `[OUTPUTS_FOLDER]/YYYYMMDD_[surname]_[company]_cv.html`
 
+**Slot validation — run before confirming save:**
+Scan the saved HTML file for any remaining `{{` strings.
+If any unfilled slots are found: list them and stop — do not tell the user to open the file.
+Resolve each missing slot before proceeding.
+
 Confirm the save, then tell the user:
 
 ```
@@ -268,7 +306,9 @@ Format edit guidance as a numbered list:
    - A new keyword that landed well → suggest adding to competency_clusters.md trigger keywords
 
    For each suggestion, show the exact formatted entry to add and which file it belongs in.
-   Ask: "Would you like me to update [asset file] with this?"
+   Ask: "Would you like me to update [asset file] with this?
+   Reply **update assets** to confirm, or **skip** to leave them unchanged."
+   Only proceed with asset file writes on receipt of the exact phrase "update assets".
 
 3. Confirm final output:
 

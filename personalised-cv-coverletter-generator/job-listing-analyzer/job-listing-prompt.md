@@ -118,4 +118,14 @@ given my evidence? This is the core argument the cover letter should build aroun
   that doesn't exist. If the gap is real, say so clearly rather than forcing a reframe.
 - Suggest a reframe only where specific supporting evidence exists in the assets.
 
+**Personal data rule:**
+Do not extract, record, or reference any personal contact details, identification data,
+or salary information in this file. job-brief.md is a role and matching analysis only.
+If the job listing contains salary ranges, record them here only as role context —
+not as the user's personal salary expectation.
+
+**Language rule:**
+All output must be in English. If the job listing is in another language, translate
+all extracted content to English before producing this document.
+
 Output this as a structured markdown document I can save as `job-brief.md`.

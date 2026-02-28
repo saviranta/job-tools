@@ -175,6 +175,12 @@ If the user chose to save to library (Q10), generate a template ID from their na
 (uppercase, hyphens): e.g. `startup-pm-ats-2page` → `TMPL-STARTUP-PM-ATS-2PAGE`.
 If one-off, use `TMPL-ONEOFF`.
 
+**Library collision check (for library templates only):**
+Before saving, check whether a file with this ID already exists in
+`[workspace]/templates/cv/`. If it does, do not overwrite it silently.
+Ask: "A template named [TMPL-ID] already exists. Replace it, save as [TMPL-ID]-2, or cancel?"
+Wait for the user's choice before saving.
+
 Produce a `cv-template.md` starting with a metadata header, then the sections below.
 
 **Metadata header** (must be first — used by the template selector for matching):

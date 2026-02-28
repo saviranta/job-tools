@@ -194,6 +194,12 @@ Generate a template ID from the name given in Q9 (uppercase with hyphens):
 e.g. `narrative-motivation-fit` → `TMPL-CL-NARRATIVE-MOTIVATION-FIT`.
 If one-off, use `TMPL-CL-ONEOFF`.
 
+**Library collision check (for library templates only):**
+Before saving, check whether a file with this ID already exists in
+`[workspace]/templates/cover-letter/`. If it does, do not overwrite it silently.
+Ask: "A template named [TMPL-CL-ID] already exists. Replace it, save as [TMPL-CL-ID]-2, or cancel?"
+Wait for the user's choice before saving.
+
 Produce a `cover-letter-template.md` starting with a metadata header.
 
 **Metadata header:**
