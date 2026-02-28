@@ -1,61 +1,93 @@
 # cv-template-generator
 
-Generates a tailored CV structure before content is added.
-
-The template captures decisions about layout, section order, emphasis, and styling
-so that the cv-generator has a clear brief to work from — not a blank canvas.
+Generates tailored CV structures and saves them to a personal template library.
+Templates are reusable — once created, they can be selected automatically for
+future applications with a matching context.
 
 ---
 
-## Why a template generator, not a fixed template
+## Why a template library, not one-off templates
 
-The right CV structure depends on context:
+A template encodes a set of structural decisions (ATS vs designed, seniority level,
+company type, domain, expertise area, length). Those decisions don't change every application —
+a senior PM at a fintech scale-up applies roughly the same structure each time.
 
-| Factor | Impact on structure |
-|---|---|
-| ATS screening expected | Single column, standard section names, no tables or graphics |
-| Human-eye first | Can use two columns, styled header, more visual hierarchy |
-| IC role | Technical depth, project evidence, skills prominent |
-| People manager | Leadership scope, team size, strategic decisions front and centre |
-| Startup | Concise, high-impact, personality welcome |
-| Enterprise | Formal, structured, titles and tenure legible at a glance |
-| 1 page | Ruthlessly prioritised, no education block unless recent |
-| 2 pages | Narrative arc across career, evidence can breathe |
+Maintaining a library means:
+- Most applications just pick a template, not generate one
+- You build up tested, refined structures over time
+- The job analyzer can recommend the right template automatically
 
-A generated template locks in these choices so you're not making structural decisions
-mid-draft.
+---
+
+## Template library structure
+
+Keep your templates in a `templates/` folder alongside your `assets/`:
+
+```
+your-cv-setup/
+├── assets/
+├── templates/
+│   ├── TMPL-STARTUP-PM-ATS.md
+│   ├── TMPL-ENTERPRISE-DIR-DESIGNED.md
+│   └── TMPL-AGENCY-IC-1PAGE.md
+└── applications/
+    └── company-role-2025/
+        ├── job-brief.md
+        ├── brand-brief.md
+        ├── company-brief.md
+        └── cv-template.md   ← copy of chosen template (may be lightly adapted)
+```
+
+Each template file has a **metadata header** at the top that describes what context it's
+built for. This is what the selector reads when matching to a job.
+
+---
+
+## Recommended workflow
+
+```
+1. job-listing-analyzer   → job-brief.md
+   brand-inspector        → brand-brief.md   (run in parallel)
+
+2. template-selector-prompt.md
+   → checks templates/ against job-brief
+   → recommends an existing template OR says "generate new"
+
+3a. If match found:
+    copy matching template to applications/company-role-2025/cv-template.md
+    (lightly adapt if brand-brief suggests different colors/fonts)
+
+3b. If no match:
+    template-generator-prompt.md → new template → save to templates/ library
+    copy to applications/company-role-2025/cv-template.md
+
+4. cv-generator
+   ← assets/ + job-brief.md + brand-brief.md + cv-template.md
+   → your tailored CV
+```
 
 ---
 
 ## Inputs
 
 **Required:**
-- Answers to the context questions (in the prompt)
+- Answers to the nine context questions (in `template-generator-prompt.md`)
 
 **Optional but recommended:**
-- `brand-brief.md` from the brand-inspector → informs visual styling
-- `job-brief.md` from the job-listing-analyzer → informs section emphasis and ordering
+- `brand-brief.md` from brand-inspector → informs visual styling
+- `job-brief.md` from job-listing-analyzer → informs section emphasis
 
 ---
 
-## Output
+## Output: cv-template.md
 
-A `cv-template.md` file containing:
-- Page setup (margins, columns, density)
-- Header specification (what to include, layout)
-- Section list in order, with section names to use
-- Per-section brief (format, length, emphasis, what to draw from assets)
-- Visual parameters (fonts, colors, accent usage — if brand-brief provided)
-
----
-
-## How it connects
-
-```
-job-brief.md  ──┐
-brand-brief.md ─┤→ cv-template-generator → cv-template.md
-context Q&A  ───┘                                ↓
-                                          cv-generator
-                                    (populates the template
-                                     from your asset files)
-```
+A template file with:
+- A **metadata header** (used by the selector for matching)
+- Template summary
+- Page setup and ATS constraints
+- Header specification
+- Ordered section list
+- Per-section brief (format, length, emphasis, asset source)
+- Visual parameters (from brand-brief or sensible defaults)
+- Domain and expertise calibration notes
+- cv-generator instructions block

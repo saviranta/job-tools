@@ -133,6 +133,19 @@ Free text — e.g.:
 
 ---
 
+**Q10: Save this template to your library, or use it once?**
+
+Pick one:
+- [ ] Save to library — I'll reuse this structure for similar applications
+- [ ] One-off — this context is unusual, don't add to library
+
+If saving to library, give the template a short descriptive name:
+e.g. `startup-pm-ats-2page`, `enterprise-director-designed`, `agency-ic-1page`
+
+Template name: [YOUR NAME HERE]
+
+---
+
 ## Optional: Paste supporting files
 
 If you have these, paste them below. Claude will use them to inform the styling
@@ -158,7 +171,28 @@ a brand brief and job brief provided above.
 The template is not the CV itself. It is a structural brief that the cv-generator
 will use to populate content from a career asset library.
 
-Produce a `cv-template.md` with the following sections:
+If the user chose to save to library (Q10), generate a template ID from their name
+(uppercase, hyphens): e.g. `startup-pm-ats-2page` → `TMPL-STARTUP-PM-ATS-2PAGE`.
+If one-off, use `TMPL-ONEOFF`.
+
+Produce a `cv-template.md` starting with a metadata header, then the sections below.
+
+**Metadata header** (must be first — used by the template selector for matching):
+
+```
+---
+id: TMPL-[GENERATED-ID]
+name: [Human-readable name from Q10, or "One-off"]
+library: true / false
+ats: yes / probably / no / unknown
+seniority: ic / senior-ic / manager / director
+company_type: [from Q3: startup / scale-up / enterprise / agency / public-sector]
+domain: [from Q4]
+expertise: [from Q5, comma-separated]
+length: 1-page / 2-page / unlimited
+created: [today's date]
+---
+```
 
 **1. Template summary**
 One paragraph: what this template is optimised for and why.
