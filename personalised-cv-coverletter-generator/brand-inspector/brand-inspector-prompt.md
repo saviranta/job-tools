@@ -25,6 +25,10 @@ Please navigate and read the following pages in sequence:
    this may have official color codes, font names, and brand guidelines
 6. Their LinkedIn company page — profile banner, post tone and style
 
+Stop-early rule: if step 5 yields a press kit or design system with official
+colors, fonts, and brand guidelines, you may skip or skim the remaining pages —
+you already have the most reliable brand data available.
+
 Then use the analysis prompt below to produce the brand brief.
 ```
 
@@ -72,6 +76,8 @@ Consider pairing: scraper for text/tone analysis, Chrome MCP screenshot for visu
 
 Paste this after browsing or scraping. For Chrome MCP, also ask Claude to take a screenshot
 of the homepage before running this — visual inspection is part of the analysis.
+
+<!-- BEGIN PROMPT -->
 
 ---
 

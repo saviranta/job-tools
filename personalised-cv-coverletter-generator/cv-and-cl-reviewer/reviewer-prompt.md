@@ -75,17 +75,11 @@ No interpretation, no context, no charity. Only what's literally present.*
 ── ATS ─────────────────────────────────────
 Signal: STRONG / GOOD / MIXED / WEAK
 
-Keywords present:    [list — term: location]
-Keywords absent:     [list — these are gaps]
-Keywords paraphrased only: [list — at risk]
+Keywords: present [term, term] | absent [term, term] | paraphrased only [term]
 
-Observations:
-• [observation 1]
-• [observation 2]
-
-Change suggestions:
-1. [specific, actionable change]
-2. [specific, actionable change]
+Findings:
+1. [Issue]: [observation] → [specific action]
+2. [Issue]: [observation] → [specific action]
 ────────────────────────────────────────────
 ```
 
@@ -121,17 +115,11 @@ Change suggestions:
 ── HR RECRUITER ─────────────────────────────
 Signal: STRONG / GOOD / MIXED / WEAK
 
-Observations:
-• [observation 1 — CV]
-• [observation 2 — CL]
-• [observation 3]
+Red flags: [flag, flag — or "None identified"]
 
-Red flags identified:
-• [flag or "None identified"]
-
-Change suggestions:
-1. [specific change]
-2. [specific change]
+Findings:
+1. [Issue]: [observation] → [specific action]
+2. [Issue]: [observation] → [specific action]
 ─────────────────────────────────────────────
 ```
 
@@ -170,17 +158,11 @@ Would I want them on my team? Would I trust them with this?"*
 ── HIRING MANAGER ───────────────────────────
 Signal: STRONG / GOOD / MIXED / WEAK
 
-Observations:
-• [observation 1]
-• [observation 2]
-• [observation 3]
+Interview risk: "[claim]" — [assessment of how well it's supported — or "None flagged"]
 
-Interview risk flags:
-• "[claim]" — likely to be probed; [assessment of how well it's supported]
-
-Change suggestions:
-1. [specific change]
-2. [specific change]
+Findings:
+1. [Issue]: [observation] → [specific action]
+2. [Issue]: [observation] → [specific action]
 ─────────────────────────────────────────────
 ```
 
@@ -223,19 +205,13 @@ Examples of calibration:
 ```
 ── ROLE EXPERT ──────────────────────────────
 Signal: STRONG / GOOD / MIXED / WEAK
-[Role calibration: e.g. "Reviewing as: Senior Product Manager, B2B SaaS"]
+[Reviewing as: e.g. Senior Product Manager, B2B SaaS]
 
-Observations:
-• [observation 1]
-• [observation 2]
-• [observation 3]
+Missing domain signals: [what's absent — or "None"]
 
-Missing domain signals:
-• [what's absent that would strengthen credibility]
-
-Change suggestions:
-1. [specific change]
-2. [specific change]
+Findings:
+1. [Issue]: [observation] → [specific action]
+2. [Issue]: [observation] → [specific action]
 ─────────────────────────────────────────────
 ```
 
@@ -271,19 +247,11 @@ at a level that touches leadership, budget, or risk. Their concerns don't always
 ── CEO / CFO / LEGAL ────────────────────────
 Signal: STRONG / GOOD / MIXED / WEAK
 
-CEO observations:
-• [observation]
-• [observation]
+Legal flags: [flag — or "None identified"]
 
-CFO observations:
-• [observation or "No concerns"]
-
-Legal flags:
-• [flag or "No flags identified"]
-
-Change suggestions:
-1. [specific change — note which lens it addresses]
-2. [specific change]
+Findings:
+1. [CEO/CFO/Legal — Issue]: [observation] → [specific action]
+2. [CEO/CFO/Legal — Issue]: [observation] → [specific action]
 ─────────────────────────────────────────────
 ```
 
@@ -325,24 +293,15 @@ a person wrote it or a template produced it.*
 ── NARRATIVE COPYWRITER ─────────────────────
 Signal: STRONG / GOOD / MIXED / WEAK
 
-Clichés found:
-• "[phrase]" → suggest: [replacement]
-• "[phrase]" → suggest: [replacement]
-• [or "None found — well done"]
+Clichés: "[phrase]" → [replacement] | "[phrase]" → [replacement] | [or "None found"]
 
-Opening line: [Earns it / Borderline / Loses the reader]
-[Assessment + suggested alternative if needed]
+Opening line: [Earns it / Borderline / Loses the reader] — [assessment, one line]
 
-Best line in the CL:
-"[the line]"
+Best line: "[the strongest line in the CL]"
 
-Observations:
-• [voice/narrative observation]
-• [voice/narrative observation]
-
-Change suggestions:
-1. [specific change]
-2. [specific change]
+Findings:
+1. [Issue]: [observation] → [specific action]
+2. [Issue]: [observation] → [specific action]
 ─────────────────────────────────────────────
 ```
 
@@ -350,7 +309,8 @@ Change suggestions:
 
 ### Cross-persona priority summary
 
-After all six personas, produce a priority table:
+After all six personas, produce a priority table.
+Reference findings by persona code and number (e.g. `ATS:1`, `HM:2`) — do not restate them.
 
 ```
 ═══════════════════════════════════════════════
@@ -358,25 +318,22 @@ PRIORITY CHANGE SUMMARY
 ═══════════════════════════════════════════════
 
 HIGH PRIORITY — flagged by 2+ personas:
-  1. [issue] — flagged by: [Persona A, Persona B]
-     Action: [consolidated change suggestion]
-
-  2. [issue] — flagged by: [Persona A, Persona C]
-     Action: [consolidated change suggestion]
+  1. [issue] — [ATS:N, HM:N] → [consolidated action]
+  2. [issue] — [HR:N, CP:N] → [consolidated action]
 
 MEDIUM PRIORITY — single persona, high signal:
-  3. [issue] — flagged by: [Persona]
-     Action: [change suggestion]
+  3. [issue] — [Persona:N] → [action]
 
 LOW PRIORITY — minor or stylistic:
-  4. [issue]
-     Action: [change suggestion]
+  4. [issue] — [Persona:N] → [action]
 
-THINGS WORKING WELL — do not change:
-  • [what's landing across multiple personas]
-  • [what's landing across multiple personas]
+WORKING WELL — do not change:
+  • [what's landing]
+  • [what's landing]
 ═══════════════════════════════════════════════
 ```
+
+Persona codes: ATS · HR · HM · RE · CCL · CP (Narrative Copywriter)
 
 ---
 

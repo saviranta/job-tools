@@ -43,6 +43,8 @@ My asset files are at: [path to your assets/ folder]
 
 Paste this into Claude (with your assets and the job listing text, or via MCP as above).
 
+<!-- BEGIN PROMPT -->
+
 ---
 
 You are analyzing a job listing against my career asset library to produce a targeted job brief.

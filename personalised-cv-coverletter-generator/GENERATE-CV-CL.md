@@ -69,10 +69,10 @@ Run all three, then show the combined summary and wait for one approval.
 
 **Step 1 — Analyse the job listing**
 
-Read: `job-listing-analyzer/job-listing-prompt.md`
+Read `job-listing-analyzer/job-listing-prompt.md` from `<!-- BEGIN PROMPT -->` to end.
 
-Follow its instructions using the job URL or pasted text provided.
-If a URL was given, use Chrome MCP to read it directly (Option B in the prompt).
+Follow those instructions using the job URL or pasted text provided.
+If a URL was given, use Chrome MCP to read it directly (Option B in that file).
 If text was pasted, use that (Option A).
 
 Save output as: `[workspace]/applications/[company]-[role]-[date]/job-brief.md`
@@ -81,9 +81,9 @@ Save output as: `[workspace]/applications/[company]-[role]-[date]/job-brief.md`
 
 **Step 2 — Analyse the company**
 
-Read: `job-listing-analyzer/company-analyzer-prompt.md`
+Read `job-listing-analyzer/company-analyzer-prompt.md` from `<!-- BEGIN PROMPT -->` to end.
 
-Follow its instructions using the company URL provided. Use Chrome MCP (Option A).
+Follow those instructions using the company URL provided. Use Chrome MCP (Option A).
 
 Save output as: `[workspace]/applications/[company]-[role]-[date]/company-brief.md`
 
@@ -91,9 +91,9 @@ Save output as: `[workspace]/applications/[company]-[role]-[date]/company-brief.
 
 **Step 3 — Inspect the brand**
 
-Read: `brand-inspector/brand-inspector-prompt.md`
+Read `brand-inspector/brand-inspector-prompt.md` from `<!-- BEGIN PROMPT -->` to end.
 
-Follow its instructions using the company URL. Use Chrome MCP (Option A).
+Follow those instructions using the company URL. Use Chrome MCP (Option A).
 Focus on: homepage, about page, careers page, and any press kit or design system link.
 
 Save output as: `[workspace]/applications/[company]-[role]-[date]/brand-brief.md`
@@ -123,6 +123,10 @@ BRAND BRIEF
 ```
 
 Ask: "Do these briefs look right? Reply **go** to continue, or tell me what to adjust."
+
+> **Session break point:** All three brief files are saved to the application folder.
+> If you need to pause, start a new session and provide the application folder path.
+> Resume from: **STEP 4 — CV template selection**.
 
 ---
 
@@ -205,6 +209,9 @@ The approved CV markdown must be saved to:
 
 The final CV HTML must be saved to:
 `[workspace]/outputs/YYYYMMDD_[surname]_[company]_cv.html`
+
+> **Session break point:** CV outputs are saved. If you need to pause, start a new session
+> and provide the application folder path. Resume from: **STEP 8 — Cover letter generation**.
 
 ---
 

@@ -99,5 +99,13 @@ When we've covered enough ground (or I say "generate"), produce all five asset f
 using the templates from `assets/`. Follow the structure exactly — role IDs, cluster IDs,
 tags, and cross-references must be consistent across files.
 
+**Note on capabilities.md:** This file has two sections that both need populating:
+- `## INDEX` — one table row per entry (ID, title, clusters, evidence level, preview)
+- `## ENTRIES` — full content for each entry (description, evidence/metrics, tags)
+
+Generate both sections. Every CAP-ID in INDEX must have a matching entry in ENTRIES.
+Tools read INDEX first for selection, then load specific ENTRIES by CAP-ID — both
+sections must be present for the cv-generator and cover-letter-generator to work.
+
 Tell me: "Here are your asset files. Save each one to your assets/ folder and review them.
 Use the maintenance prompts to fill gaps and keep them updated."

@@ -48,9 +48,12 @@ Read all input files. Do not generate any content yet.
 
 **Step 1a — Verify files**
 
+For capabilities.md: read the `## INDEX` section only — stop at the `---` divider before
+`## ENTRIES`. Record the number of INDEX entries found. Full entries are loaded in Phase 2.
+
 | File | Status | Notes |
 |---|---|---|
-| assets/capabilities.md | ✓ Found / ✗ Missing | [entry count] |
+| assets/capabilities.md | ✓ Found / ✗ Missing | [INDEX entry count] |
 | assets/qualities_workstyle.md | ✓ Found / ✗ Missing | |
 | assets/profiles.md | ✓ Found / ✗ Missing | [profile count] |
 | cover-letter-template.md | ✓ Found / ✗ Missing | [template ID] |
@@ -140,11 +143,23 @@ or tell me what to adjust."
 
 Wait for Phase 1 approval before starting.
 
+**Loading capabilities (scaled to length_style):**
+From the `## ENTRIES` section of capabilities.md, load only the selected CAP-IDs.
+For each selected CAP-ID, search for the matching `### CAP-NNN —` header and read
+that entry block (until the next `---` divider).
+
+Number of entries to load — determined by length_style from the cl-template:
+- `short-bold`: load 1–2 entries (the single strongest proof point + one backup)
+- `structured`: load 3–4 entries (one per emphasis area)
+- `narrative`: load 4–6 entries (paragraphs draw on multiple)
+
+Do not load entries beyond this count — quality comes from selection, not volume.
+
 Generate `YYYYMMDD_[surname]_[company]_cl.md` and save it to the application folder.
 
 **Before writing — rules to load:**
 
-Read and hold in context:
+Hold in context:
 - The cl-template structural blueprint (section order, length per section, emphasis per section)
 - The human character instructions block from the cl-template
 - The voice constraints from writing-style.md (vocabulary, sentence rhythm, red flags)
@@ -256,7 +271,8 @@ Iterate — regenerate, save, display word count, ask again — until user repli
 
 Wait for Phase 2 approval before starting.
 
-Read the approved `YYYYMMDD_[surname]_[company]_cl.md` and the `cl-output.html` skeleton.
+Use the approved markdown content from Phase 2 — do not re-read the .md file.
+Read the `cl-output.html` skeleton.
 
 **Slot filling:**
 

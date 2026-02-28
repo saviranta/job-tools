@@ -70,8 +70,11 @@ Do not proceed until all required files are present.
 
 **Step 1b — Selection summary**
 
-Read the cv-template and job-brief and show the user what has been selected
-for this application:
+Read the cv-template and job-brief.
+For capabilities.md: read the `## INDEX` section only — stop at the `---` divider
+before `## ENTRIES`. Do not load full entry content yet (loaded by CAP-ID in Phase 2).
+
+Show the user what has been selected for this application:
 
 ```
 ═══════════════════════════════════════════════
@@ -171,6 +174,12 @@ Reply **go** to generate the CV draft, or tell me what to adjust."
 
 Wait for user approval from Phase 1 before starting.
 
+**Loading capabilities:**
+Before writing any content, load the full ENTRIES for each selected CAP-ID.
+In the `## ENTRIES` section of capabilities.md, search for each `### CAP-NNN —` header
+from the Phase 1 shortlist and read that entry block (until the next `---` divider).
+Only load entries in the shortlist — do not read the full ENTRIES section.
+
 Generate `YYYYMMDD_[surname]_[company]_cv.md` — the full CV in structured markdown.
 Save it to the application folder.
 
@@ -233,7 +242,8 @@ until the user replies **approved**.
 
 Wait for Phase 2 approval before starting.
 
-Read the approved `YYYYMMDD_[surname]_[company]_cv.md` and the `cv-output.html` skeleton.
+Use the approved markdown content from Phase 2 — do not re-read the .md file.
+Read the `cv-output.html` skeleton.
 
 **Slot filling rules:**
 

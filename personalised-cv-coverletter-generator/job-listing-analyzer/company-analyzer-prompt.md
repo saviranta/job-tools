@@ -25,6 +25,9 @@ Please visit and read the following pages (navigate to each in sequence):
 4. Blog or News — what they're writing about recently (read 2-3 recent posts)
 5. Careers or Jobs page — how they describe their culture to candidates
 
+Stop-early rule: if you have sufficient content for all 7 brief sections after
+fewer pages, stop browsing — do not visit additional pages unnecessarily.
+
 Then use the analysis prompt below to produce a company brief.
 
 [PASTE THE ANALYSIS PROMPT FROM BELOW]
@@ -66,6 +69,8 @@ Run the site structure analyzer, then the scraper. Feed the output into the anal
 ## The Analysis Prompt
 
 Paste this after the scraped or browsed content.
+
+<!-- BEGIN PROMPT -->
 
 ---
 
