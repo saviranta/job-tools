@@ -65,7 +65,7 @@ Per application:
 ## File locations (personal, outside this repo)
 
 ```
-your-cv-setup/
+your-asset-setup/
 ├── assets/
 ├── templates/
 │   ├── cover-letter/

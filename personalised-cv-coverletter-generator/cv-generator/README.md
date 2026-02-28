@@ -65,7 +65,7 @@ Manual edits to the HTML are reflected back up to the .md and optionally to asse
 
 | File | Source | Required |
 |---|---|---|
-| `assets/*.md` | cv-setup | Yes — all five files |
+| `assets/*.md` | asset-setup | Yes — all five files |
 | `cv-template.md` | cv-template-generator | Yes |
 | `cv-output.html` | output-html-style-generator | Yes |
 | `job-brief.md` | job-listing-analyzer | Yes |

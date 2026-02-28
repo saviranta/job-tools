@@ -57,7 +57,7 @@ Both outputs are inputs to the generation step.
 Save your briefs alongside your assets, outside this repo:
 
 ```
-your-cv-setup/
+your-asset-setup/
 ├── assets/
 ├── archive/
 └── applications/

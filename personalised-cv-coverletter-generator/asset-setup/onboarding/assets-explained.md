@@ -80,7 +80,7 @@ Both belong here. Accomplishments are more powerful — aim for 2-3x more accomp
 ## The overall flow
 
 ```
-cv-setup (you are here)
+asset-setup (you are here)
     → populate assets/
 
 job-listing-analyzer

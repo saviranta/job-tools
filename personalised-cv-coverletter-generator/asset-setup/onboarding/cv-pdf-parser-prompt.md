@@ -37,7 +37,7 @@ Pick the option that matches your setup.
 1. Create the folder structure next to your `assets/` folder:
 
    ```
-   your-cv-setup/
+   your-asset-setup/
    ├── assets/
    │   ├── work_experience.md
    │   ├── capabilities.md

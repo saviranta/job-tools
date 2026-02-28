@@ -1,4 +1,4 @@
-# cv-setup
+# asset-setup
 
 The starting point for personalised CV and cover letter generation.
 
@@ -11,7 +11,7 @@ The downstream tools (job analyzer, cv-generator, cover-letter-generator) pull f
 ## What's in here
 
 ```
-cv-setup/
+asset-setup/
 ├── assets/               ← template files for your career asset library
 │   ├── work_experience.template.md
 │   ├── capabilities.template.md

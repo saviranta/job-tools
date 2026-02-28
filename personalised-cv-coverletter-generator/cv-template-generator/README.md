@@ -24,7 +24,7 @@ Maintaining a library means:
 Keep your templates in a `templates/` folder alongside your `assets/`:
 
 ```
-your-cv-setup/
+your-asset-setup/
 ├── assets/
 ├── templates/
 │   ├── TMPL-STARTUP-PM-ATS.md

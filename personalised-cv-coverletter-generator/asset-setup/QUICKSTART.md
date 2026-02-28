@@ -1,4 +1,4 @@
-# cv-setup — Start Here
+# asset-setup — Start Here
 
 This tool builds your **career asset library**: five structured files that capture
 your experience, skills, and positioning. The downstream tools use them to generate
