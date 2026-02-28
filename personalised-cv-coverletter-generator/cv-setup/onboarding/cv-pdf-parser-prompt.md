@@ -1,18 +1,80 @@
-# CV / PDF Parser Prompt
+# CV / PDF Parser
 
-Use this to convert an existing CV into a first draft of your asset files.
-Works best with a detailed CV — the more content you have, the richer the output.
+Convert an existing CV into a first draft of your asset files.
+Pick the option that matches your setup.
 
-**How to extract text from a PDF CV:**
+---
+
+## Option A: Paste text into Claude
+
+**Best for:** A single CV you have open right now.
+
+**How to extract text from a PDF:**
 - Mac: open in Preview → Edit → Select All → Copy
-- Any browser: open PDF → Ctrl/Cmd+A → Ctrl/Cmd+C
+- Any browser: open PDF → Cmd+A → Cmd+C
 - Or use a tool like pdftotext, Adobe Acrobat, or an online PDF-to-text converter
 
-**How to use this prompt:**
-1. Copy everything below the line
-2. Paste into Claude, followed by your CV text
-3. Claude will generate your asset files
-4. Save to `assets/` and refine using the maintenance prompts
+**How to use:**
+1. Extract the text from your CV
+2. Copy the parsing prompt at the bottom of this file
+3. Paste it into Claude followed by your CV text
+4. Claude will generate your asset files
+
+---
+
+## Option B: Archive folder + Claude Code (batch, auto-updating)
+
+**Best for:** You have multiple old CVs, or you want Claude Code to read and populate your assets automatically — including as you add new CV versions over time.
+
+**How it works:**
+- Save your CVs (any version, any role) as PDFs into a local `archive/pre-gen/` folder
+- Claude Code reads them using its built-in PDF reading capability
+- Claude parses all of them and populates or updates your five asset files
+- Run it again any time you add a new CV version — it merges rather than overwrites
+
+**Setup:**
+
+1. Create the folder structure next to your `assets/` folder:
+
+   ```
+   your-cv-setup/
+   ├── assets/
+   │   ├── work_experience.md
+   │   ├── capabilities.md
+   │   └── ...
+   └── archive/
+       └── pre-gen/
+           ├── cv-2019.pdf
+           ├── cv-2022-pm.pdf
+           └── cv-2025-latest.pdf
+   ```
+
+2. In Claude Code, run this prompt:
+
+```
+I'm building a career asset library from my existing CVs.
+
+My archive folder is at: [path to archive/pre-gen/]
+My assets folder is at: [path to assets/]
+
+Please:
+1. Read all PDF files in the archive/pre-gen/ folder
+2. Extract all experience, skills, accomplishments, and profile content
+3. If the asset files already exist, merge new content in — don't overwrite entries that are already there
+4. If the asset files don't exist yet, generate them from scratch using the template format
+
+[PASTE THE PARSING RULES FROM THE BOTTOM OF THIS FILE]
+```
+
+3. Claude Code will read each PDF (it handles PDFs natively), reconcile content across versions, and output updated asset files.
+
+**Tip:** The oldest CV often has roles that didn't make it into your latest one. Including all versions means nothing gets lost.
+
+---
+
+## The Parsing Rules
+
+Use these with either option. They tell Claude how to structure the output.
 
 ---
 
@@ -27,7 +89,7 @@ The library consists of five files:
 
 Here is my CV:
 
-[PASTE YOUR CV TEXT HERE]
+[PASTE YOUR CV TEXT HERE — or omit this line if using Option B with Claude Code]
 
 ---
 
