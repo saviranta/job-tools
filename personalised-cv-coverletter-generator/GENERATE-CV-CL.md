@@ -65,6 +65,19 @@ Use today's date for [date] in YYYYMMDD format. Use the company name and role ti
 Steps 1, 2, and 3 each need only the inputs you've already provided.
 Run all three, then show the combined summary and wait for one approval.
 
+**New components (run after Steps 1–3, before cover letter generation):**
+- **Step 3b — Differentiator Explorer (Part B)**: runs every application. Reads your
+  `assets/differentiators.md` and the job/company brief to select 2–3 differentiators
+  for this role. Saves `differentiators-brief.md` to the application folder.
+  *If `differentiators.md` does not exist yet: run Part A first (reads all your assets
+  and conducts a short interview to build the file from scratch).*
+- **Step 3c — Motivation Wizard**: run once per application. Surfaces your genuine
+  motivation for this specific role through archetype-based dialogue. Saves
+  `motivation.md` to the application folder and appends to `assets/motivation-library.md`.
+
+Both are optional but strongly recommended — they provide protected content that the
+cover letter generator and reviewer use as anchors.
+
 ---
 
 **Step 1 — Analyse the job listing**
@@ -126,6 +139,48 @@ Ask: "Do these briefs look right? Reply **go** to continue, or tell me what to a
 
 > **Session break point:** All three brief files are saved to the application folder.
 > If you need to pause, start a new session and provide the application folder path.
+> Resume from: **STEP 3b — Differentiator Explorer**.
+
+---
+
+### STEP 3b — Differentiator Explorer (Part B — or Part A + B if first time)
+
+Read: `differentiator-explorer/differentiator-explorer-prompt.md`
+
+Fill in the file paths section using:
+- ASSETS_FOLDER: `[workspace]/assets/`
+- JOB_BRIEF: `[workspace]/applications/[company]-[role]-[date]/job-brief.md`
+- COMPANY_BRIEF: `[workspace]/applications/[company]-[role]-[date]/company-brief.md`
+- APPLICATION_FOLDER: `[workspace]/applications/[company]-[role]-[date]/`
+
+The tool automatically detects whether to run Part A (first time, builds `assets/differentiators.md`)
+or Part B only (differentiators.md already exists, selects 2–3 for this role).
+
+Save output as: `[workspace]/applications/[company]-[role]-[date]/differentiators-brief.md`
+
+Ask: "Differentiators confirmed? Reply **go** to run the Motivation Wizard, or **skip** to proceed
+without (not recommended — the cover letter generator will lack protected anchor content)."
+
+---
+
+### STEP 3c — Motivation Wizard
+
+Read: `motivation-wizard/motivation-wizard-prompt.md`
+
+Fill in the file paths section using:
+- JOB_BRIEF: `[workspace]/applications/[company]-[role]-[date]/job-brief.md`
+- COMPANY_BRIEF: `[workspace]/applications/[company]-[role]-[date]/company-brief.md`
+- ASSETS_FOLDER: `[workspace]/assets/`
+- APPLICATION_FOLDER: `[workspace]/applications/[company]-[role]-[date]/`
+
+This step involves a short dialogue (3–5 questions) to surface genuine motivation.
+At the end, save confirmed outputs:
+- `[workspace]/applications/[company]-[role]-[date]/motivation.md`
+- Append entry to `[workspace]/assets/motivation-library.md`
+
+Ask: "Motivation confirmed? Reply **go** to proceed to template selection."
+
+> **Session break point:** Differentiator and motivation files saved.
 > Resume from: **STEP 4 — CV template selection**.
 
 ---
@@ -226,6 +281,8 @@ Fill in the file paths section using:
 - JOB_BRIEF: `[workspace]/applications/[company]-[role]-[date]/job-brief.md`
 - COMPANY_BRIEF: `[workspace]/applications/[company]-[role]-[date]/company-brief.md`
 - BRAND_BRIEF: `[workspace]/applications/[company]-[role]-[date]/brand-brief.md`
+- MOTIVATION: `[workspace]/applications/[company]-[role]-[date]/motivation.md` (if it exists — from Step 3c)
+- DIFFERENTIATORS_BRIEF: `[workspace]/applications/[company]-[role]-[date]/differentiators-brief.md` (if it exists — from Step 3b)
 - WRITING_STYLE: `[workspace]/writing-style.md` (if it exists — run cover-letter-template-generator/onboarding/writing-style-wizard.md first to create it)
 - PHRASE_LIBRARY: `[workspace]/phrase-library.md` (if it exists)
 - APPLICATION_FOLDER: `[workspace]/applications/[company]-[role]-[date]/`
@@ -248,8 +305,10 @@ Read: `cv-and-cl-reviewer/reviewer-prompt.md`
 Use the approved markdown files:
 - CV: `[workspace]/applications/[company]-[role]-[date]/YYYYMMDD_[surname]_[company]_cv.md`
 - CL: `[workspace]/applications/[company]-[role]-[date]/YYYYMMDD_[surname]_[company]_cl.md`
+- MOTIVATION: `[workspace]/applications/[company]-[role]-[date]/motivation.md` (if exists)
+- DIFFERENTIATORS_BRIEF: `[workspace]/applications/[company]-[role]-[date]/differentiators-brief.md` (if exists)
 
-Run all six personas and present the cross-persona priority summary.
+Run all seven personas and present the cross-persona priority summary.
 
 Ask: "Which recommendations would you like to apply?
 Reply with persona names, item numbers, or 'none'."

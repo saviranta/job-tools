@@ -19,6 +19,8 @@ HTML_SKELETON:              [path to cl-output.html from output-html-style-gener
 JOB_BRIEF:                  [path to job-brief.md]
 COMPANY_BRIEF:              [path to company-brief.md]
 BRAND_BRIEF:                [path to brand-brief.md — or leave blank]
+MOTIVATION:                 [path to motivation.md — or leave blank; run motivation-wizard first to create]
+DIFFERENTIATORS_BRIEF:      [path to differentiators-brief.md — or leave blank; run differentiator-explorer first to create]
 WRITING_STYLE:              [path to writing-style.md — or leave blank]
 PHRASE_LIBRARY:             [path to phrase-library.md — or leave blank]
 APPLICATION_FOLDER:         [path to applications/company-role-date/ folder]
@@ -61,6 +63,8 @@ For capabilities.md: read the `## INDEX` section only — stop at the `---` divi
 | job-brief.md | ✓ Found / ✗ Missing | |
 | company-brief.md | ✓ Found / ✗ Missing | |
 | brand-brief.md | ✓ Found / — Not provided | |
+| motivation.md | ✓ Found / — Not provided | [warn if missing — motivation section will be generated without protected anchor] |
+| differentiators-brief.md | ✓ Found / — Not provided | [warn if missing — differentiators will be inferred, not confirmed] |
 | writing-style.md | ✓ Found / — Not provided | [warn if missing — voice constraints won't apply] |
 | phrase-library.md | ✓ Found / — Not provided | |
 
@@ -109,6 +113,10 @@ HUMAN CHARACTER
 PHRASE LIBRARY MATCHES
   [For each section with available phrases, list count:
    Opening: N | Skills bridge: N | Closing: N | etc.]
+
+PROTECTED CONTENT
+  Motivation:       [Present — 2–3 sentences confirmed / Not provided — will be inferred]
+  Differentiators:  [N selected, framing anchors loaded / Not provided — will be inferred]
 
 WRITING STYLE
   [Brief: tone summary from writing-style.md, or "Not provided"]
@@ -164,6 +172,23 @@ Hold in context:
 - The human character instructions block from the cl-template
 - The voice constraints from writing-style.md (vocabulary, sentence rhythm, red flags)
 - Available phrases from phrase-library.md for each section
+
+**Protected content (if provided — treat as non-negotiable anchors):**
+
+*motivation.md:*
+If provided, read the `## Confirmed statement` section. This 2–3 sentence motivation statement
+must appear in the cover letter's company/motivation paragraph, substantively intact.
+You may adapt the wording for flow within the letter, but you must not:
+- Dilute it into generic enthusiasm language ("I am excited to join...", "I admire your mission")
+- Reduce it to a clause or implication — it must be present as a substantive statement
+- Contradict or reframe the underlying motivation
+
+*differentiators-brief.md:*
+If provided, read the `## Selected differentiators` section. For each selected differentiator,
+the `**Role-specific framing:**` line is a protected anchor. It must appear in the cover letter
+(in the section indicated by "Where it lands") as a concrete, specific claim — not smoothed
+into a generic capability statement. You may adjust the phrasing for voice, but the specificity
+must be preserved.
 
 **Content rules:**
 

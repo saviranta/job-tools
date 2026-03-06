@@ -14,12 +14,14 @@ a prioritised, actionable feedback summary.
 ## Your file paths (Claude Code)
 
 ```
-CV_DRAFT:           [path to YYYYMMDD_[surname]_[company]_cv.md]
-CL_DRAFT:           [path to YYYYMMDD_[surname]_[company]_cl.md]
-JOB_BRIEF:          [path to job-brief.md]
-COMPANY_BRIEF:      [path to company-brief.md — or leave blank]
-CV_TEMPLATE:        [path to cv-template.md — for ATS and format context]
-CL_TEMPLATE:        [path to cover-letter-template.md — for intent context]
+CV_DRAFT:               [path to YYYYMMDD_[surname]_[company]_cv.md]
+CL_DRAFT:               [path to YYYYMMDD_[surname]_[company]_cl.md]
+JOB_BRIEF:              [path to job-brief.md]
+COMPANY_BRIEF:          [path to company-brief.md — or leave blank]
+CV_TEMPLATE:            [path to cv-template.md — for ATS and format context]
+CL_TEMPLATE:            [path to cover-letter-template.md — for intent context]
+MOTIVATION_FILE:        [path to motivation.md — or leave blank]
+DIFFERENTIATORS_BRIEF:  [path to differentiators-brief.md — or leave blank]
 ```
 
 **Or paste directly:**
@@ -31,7 +33,7 @@ Skip the paths and paste the content of each file after the prompt.
 
 ---
 
-You are reviewing a CV and cover letter from six distinct perspectives.
+You are reviewing a CV and cover letter from seven distinct perspectives.
 Each perspective has a different evaluation lens — what one persona prioritises,
 another ignores entirely.
 
@@ -307,9 +309,83 @@ Findings:
 
 ---
 
+### Persona 7: Authenticity & Distinction Reviewer
+
+*Lens: a recruiter who has seen thousands of AI-assisted cover letters and CVs.
+They are reading for genuineness — whether this document feels like a real person
+wrote it about themselves, or whether it was assembled from a job description.
+They are also asking: "What makes this candidate actually different from the
+other 30 people with a similar CV?"*
+
+**What to evaluate (CL primarily, CV briefly):**
+
+1. **AI-generation signals** — Flag any of the following patterns that suggest
+   machine-generated or template-assembled content:
+   - Parallel structure overuse (every bullet starts with the same verb type)
+   - Abstract leadership/impact language with no specifics ("drove alignment", "created value")
+   - Overly smooth transitions that feel editorial rather than natural
+   - Three-part sentences that all have the same rhythm
+   - Generic company flattery that could apply to any company ("mission-driven culture",
+     "collaborative team", "opportunity to make an impact")
+   - Motivation stated as checklist match: "I am drawn to this role because it combines
+     [X from JD] with [Y from JD] and [Z from JD]"
+
+2. **Generic application signal** — Could this cover letter have been sent to a
+   different company or a competitor with minimal changes? Test:
+   - Does it name something specific about THIS company that a competitor couldn't claim?
+   - Is the motivation genuinely company-specific or role-specific — or is it
+     "I want to grow / contribute / lead" dressed up in the company's vocabulary?
+   - Is there anything in this letter that reveals how the candidate actually thinks —
+     a concrete observation, a view, a question they're curious about?
+
+3. **Motivation authenticity** — If `motivation.md` was provided, check:
+   - Is the confirmed motivation statement present in the cover letter, substantively?
+   - Has it been paraphrased into generic enthusiasm language? (If so, flag it.)
+   - Does the motivation read as a real draw — something that would still be true
+     if the salary were lower — or does it read as a post-hoc rationalisation?
+   - If motivation.md was not provided: flag this as a risk — the motivation section
+     is the most likely place for generic AI-pattern language.
+
+4. **Differentiator presence** — If `differentiators-brief.md` was provided, check:
+   - Are the selected differentiators present in the cover letter with their
+     role-specific framings intact?
+   - Or have they been smoothed into generic capability claims that could appear
+     in any letter? (Flag any that were diluted.)
+   - Does the letter make this candidate feel like a specific person, or a category?
+   - If differentiators-brief.md was not provided: note which claims in the letter
+     actually do differentiate — and which make the candidate sound interchangeable
+     with others.
+
+5. **Voice genuineness** — Does the letter sound like a human being wrote it
+   about themselves — with their own perspective, slightly imperfect sentences,
+   and at least one observation that isn't from the job description?
+   Or does it sound like a document that was optimised?
+
+**Output format:**
+
+```
+── AUTHENTICITY & DISTINCTION ───────────────
+Signal: GENUINE / BORDERLINE / GENERIC
+
+AI-pattern flags: [flag, flag — or "None identified"]
+
+Generic application risk: HIGH / MEDIUM / LOW — [one sentence]
+
+Motivation check: [Present and specific / Present but diluted / Missing / Not provided]
+
+Differentiator check: [Intact / Diluted / Missing / Not provided]
+
+Findings:
+1. [Issue]: [observation] → [specific action]
+2. [Issue]: [observation] → [specific action]
+─────────────────────────────────────────────
+```
+
+---
+
 ### Cross-persona priority summary
 
-After all six personas, produce a priority table.
+After all seven personas, produce a priority table.
 Reference findings by persona code and number (e.g. `ATS:1`, `HM:2`) — do not restate them.
 
 ```
@@ -333,7 +409,7 @@ WORKING WELL — do not change:
 ═══════════════════════════════════════════════
 ```
 
-Persona codes: ATS · HR · HM · RE · CCL · CP (Narrative Copywriter)
+Persona codes: ATS · HR · HM · RE · CCL · CP (Narrative Copywriter) · AD (Authenticity & Distinction)
 
 ---
 
