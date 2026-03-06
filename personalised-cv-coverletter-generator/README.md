@@ -9,10 +9,11 @@ decision point — no content is written or saved without your approval.
 ## How it works
 
 You maintain a library of career assets — your experience, capabilities, competency
-clusters, and positioning profiles. When you apply for a role, the system analyses
-the job listing and company, selects the right content from your library, generates
+clusters, positioning profiles, motivations, and differentiators. When you apply for
+a role, the system analyses the job listing and company, selects the right content from
+your library, surfaces role-specific differentiators and genuine motivations, generates
 a CV and cover letter in structured markdown, fills them into a branded HTML template,
-and runs a six-persona review. You approve or adjust at each stage.
+and runs a seven-persona review. You approve or adjust at each stage.
 
 Every output file is named `YYYYMMDD_[surname]_[company]_cv.html` (or `_cl.html`) —
 no generic filenames, ever.
@@ -43,6 +44,8 @@ Run `GENERATE-CV-CL.md` (or trigger `/generate-application` if you've set it up 
 
 ```
 asset-setup/                     Career asset library templates and onboarding
+motivation-wizard/               Build your motivation library; extract role-specific motivation per application
+differentiator-explorer/         Build your differentiator library; surface 2–3 role-specific anchors per application
 job-listing-analyzer/            Analyse job listings and company websites
 brand-inspector/                 Decode company visual and tone identity
 cv-template-generator/           Design CV structure for different contexts
@@ -50,7 +53,7 @@ cover-letter-template-generator/ Design cover letter structure and voice profile
 output-html-style-generator/     Generate branded HTML/CSS output skeletons
 cv-generator/                    Generate tailored CV (4 phases, human-reviewed)
 cover-letter-generator/          Generate tailored cover letter (4 phases, human-reviewed)
-cv-and-cl-reviewer/              Six-persona review with prioritised feedback
+cv-and-cl-reviewer/              Seven-persona review with prioritised feedback
 eval/                            Mechanical checks and qualitative eval prompt
 ```
 
@@ -66,7 +69,7 @@ break point so you can resume without losing context.
 
 ## Asset library
 
-Your career data lives in five files in your workspace `assets/` folder:
+Your career data lives in seven files in your workspace `assets/` folder:
 
 | File | Contents |
 |------|----------|
@@ -75,9 +78,16 @@ Your career data lives in five files in your workspace `assets/` folder:
 | `competency_clusters.md` | Grouped skill areas with trigger keywords for job ad matching |
 | `qualities_workstyle.md` | Working style, leadership approach, personal attributes |
 | `profiles.md` | Positioning statements for different target contexts |
+| `motivation-library.md` | Curated motivation entries built by the Motivation Wizard (one-time setup, updated over time) |
+| `differentiators.md` | What makes you genuinely distinct — built by the Differentiator Explorer (one-time setup, updated over time) |
 
 Assets are the single source of truth. The generators draw content only from these
 files — nothing is invented. Metrics are used verbatim.
+
+**`motivation-library.md` and `differentiators.md` are optional but strongly recommended.**
+When present, the cover letter generator treats role-specific motivation and differentiator
+framings as protected content — they must appear in the letter substantively intact and cannot
+be diluted into generic enthusiasm language.
 
 ---
 
@@ -134,8 +144,10 @@ material in any language.
   selected entries. This keeps context lean without sacrificing quality.
 - **Reusable templates and styles** — CV templates, CL templates, and HTML styles
   accumulate in a library. The selector checks the library before generating new.
-- **Six-persona review** — ATS, HR Recruiter, Hiring Manager, Role Expert, CEO/CFO/Legal,
-  Narrative Copywriter. Contradictory recommendations are surfaced before applying.
+- **Seven-persona review** — ATS, HR Recruiter, Hiring Manager, Role Expert, CEO/CFO/Legal,
+  Narrative Copywriter, Authenticity & Distinction Reviewer. Contradictory recommendations
+  are surfaced before applying. The seventh persona specifically checks for AI-pattern flags,
+  generic application risk, motivation authenticity, and differentiator presence.
 - **Workspace separation** — this repo contains tools only. Your personal data
   (assets, templates, applications, outputs) lives in your workspace, never here.
 - **Eval by default** — every run produces a trace log. Mechanical checks and a
@@ -152,9 +164,11 @@ personalised-cv-coverletter-generator/
 ├── README.md                        ← you are here
 ├── asset-setup/
 │   ├── QUICKSTART.md
-│   ├── assets/                      ← five .template.md files
+│   ├── assets/                      ← seven .template.md files
 │   ├── onboarding/                  ← linkedin, pdf, and quickstart prompts
 │   └── maintenance/                 ← quick-add and update-guide prompts
+├── motivation-wizard/               ← motivation-wizard-prompt.md
+├── differentiator-explorer/         ← differentiator-explorer-prompt.md
 ├── job-listing-analyzer/
 ├── brand-inspector/
 ├── cv-template-generator/
@@ -163,7 +177,7 @@ personalised-cv-coverletter-generator/
 ├── output-html-style-generator/
 ├── cv-generator/
 ├── cover-letter-generator/
-├── cv-and-cl-reviewer/
+├── cv-and-cl-reviewer/              ← seven-persona review
 └── eval/
     ├── eval.py                      ← mechanical checks script (Python, stdlib only)
     ├── eval-prompt.md               ← qualitative eval prompt
