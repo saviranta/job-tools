@@ -92,6 +92,13 @@ Pick one:
 - [ ] Chronological — employment history first, accomplishments nested under each role
 - [ ] Skills / capabilities first — lead with what I can do, then support with roles
 - [ ] Hybrid — brief positioning statement, then chronological roles
+- [ ] Brochure & Extended — Page 1 is a complete scannable brochure (profile, competency
+      groups with outcomes, experience timeline as titles+years only, personal/links).
+      Pages 2+ are the extended section: full chronological role entries with accomplishments,
+      responsibilities, and competencies. Best for: design-adjacent or creative-technical roles
+      where the reader wants a fast first impression before going deep; roles with a portfolio
+      review step; small companies where the hiring manager reads page 1 before deciding
+      whether to continue.
 
 ---
 
