@@ -158,28 +158,55 @@ Ask the questions. Wait for all answers before proceeding.
 
 ### STEP 4 — Reflect and confirm
 
-Synthesise the answers into a motivation statement: 2–3 sentences that could form
+Synthesise the answers into a motivation statement: 3–5 sentences that could form
 the spine of a cover letter's opening or company paragraph.
 
-**Rules for the motivation statement:**
+**Required structure — all three elements must appear:**
+
+1. **Hook that reveals the beef** — open with the strategic or product insight that
+   explains why *this person* for *this company* right now. Not "I want this role."
+   The hook should make the reader immediately understand the specific value the
+   candidate brings, framed as a company opportunity or problem worth solving.
+
+2. **Highly personal motivation story** — something only this person could say.
+   A concrete life context, a specific use case, a genuine tension or constraint.
+   If it could appear in any cover letter, it is not personal enough.
+   Must include at least one detail that is specific, surprising, or honest enough
+   to be slightly uncomfortable to share.
+
+3. **Evidence of past** — one anchoring reference to a relevant past success that
+   validates the claim. Not a metrics dump. One outcome, naturally woven in,
+   that shows this isn't aspiration — it's a repeatable pattern.
+
+**Additional rules:**
 - Must be specific to this company and role — could not be transplanted to a
   competitor or a similar role elsewhere
 - Must be written in first person, as the user would say it
 - Must not use: "passionate about", "excited to join", "I've always believed",
   "I admire your mission", or any phrase that could appear in any cover letter
-- May acknowledge complexity or nuance — a motivation statement that includes
-  a tension or a "because of X rather than despite X" reads as more genuine
+- May acknowledge complexity or nuance — a tension or a "because of X rather
+  than despite X" reads as more genuine than pure enthusiasm
 - Should feel like something the user would actually say, not something polished
   for an audience
+
+**Example structure (not a template — illustrative only):**
+```
+[Hook — company insight/opportunity framed around the candidate's specific angle]
+[Personal story — specific, concrete, could only be this person]
+[Evidence hint — one past outcome that shows the pattern is real]
+```
 
 Present it clearly:
 
 ```
 MOTIVATION STATEMENT (draft)
 
-"[2–3 sentences]"
+"[3–5 sentences covering all three elements]"
 
 This is drawn from: [brief note on which answers informed it]
+Hook:     [one line — what the opening reveals]
+Personal: [one line — what makes it specific to this person]
+Evidence: [one line — which past success anchors it]
 ```
 
 Ask:
