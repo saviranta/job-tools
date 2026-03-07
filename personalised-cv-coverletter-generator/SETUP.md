@@ -74,6 +74,32 @@ Confirm each file was copied.
 
 ---
 
+### Step 2b: Add your profile photo
+
+All CV and cover letter outputs include your photo in the header by default.
+
+Ask me: **"Do you have a profile photo ready to add? If yes, copy it to
+`[workspace]/assets/` and name it `profile-photo.jpg` (or `.png`), then tell
+me when it's done. Or type 'skip' to add it later."**
+
+Wait for my answer. If I confirm the photo is there, verify the file exists
+at `[workspace]/assets/profile-photo.jpg` (or `.png`) and confirm the filename.
+
+If skipped: create a placeholder note in assets:
+```
+[workspace]/assets/PHOTO-MISSING.txt
+```
+with content: `Add your profile photo here. Name it profile-photo.jpg or profile-photo.png`
+
+Tell me:
+```
+Photo slot: assets/profile-photo.jpg (or .png)
+All generated CVs and cover letters will reference this path automatically.
+If you skip it now, add the photo later and remove PHOTO-MISSING.txt.
+```
+
+---
+
 ### Step 3: Copy phrase library template and create writing style file
 
 ```
@@ -107,6 +133,7 @@ YOUR WORKSPACE IS READY
 ═══════════════════════════════════════════════
 
 assets/                 ← fill these in — they're the foundation of everything
+  profile-photo.jpg     ← your photo — used in all CV and CL headers automatically
   work_experience.md    ← your career history with role IDs
   capabilities.md       ← what you've done and achieved (tagged, searchable)
   competency_clusters.md← skill groupings for job-ad matching

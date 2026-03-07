@@ -36,6 +36,27 @@ Then use the analysis prompt below to produce the brand brief.
 or a Figma community file, link it in the prompt — it's the most reliable source of
 official colors and typefaces.
 
+**Screenshot enhancement (recommended):**
+After browsing, ask the user:
+"Would you like to add brand screenshots for closer analysis?
+If yes:
+  1. Take screenshots of the most visually representative pages (homepage hero,
+     typography samples, color use in context, UI components if visible)
+  2. Save them to: `[application-folder]/brand-brief-assets/`
+  3. Tell me what to look for in each — e.g. 'note the exact green used on buttons'
+     or 'check the heading font weight and spacing'
+
+Reply **yes** to add screenshots, or **continue** to proceed with web analysis only."
+
+If the user adds screenshots:
+- Read each image file from `brand-brief-assets/`
+- For each, ask: "What should I notice in this screenshot?" if the user hasn't already specified
+- Extract: exact color values visible, font characteristics, spacing patterns, UI element styles
+- Treat screenshot observations as **higher confidence** than inferred web analysis —
+  mark screenshot-derived values as `[from screenshot]` instead of `[ESTIMATED]`
+- Incorporate these findings into the brand brief sections, upgrading any `[ESTIMATED]` entries
+  where the screenshot provides confirmation
+
 ---
 
 ## Option B: Claude Code + Playwright Scraper (automated)

@@ -45,14 +45,19 @@ company website, or any input is in another language, translate all extracted co
 to English before producing any brief or output file. The CV and cover letter are
 generated in English. Inform the user if translation was performed.
 
-**Start by asking me two questions:**
+**Start by asking me these questions:**
 
 1. "What is the job listing URL? (Or paste the job description text if you don't have a URL)"
 2. "What is the company website URL?"
+3. "What is your workspace path?" (e.g. `~/cv-workspace`)
 
-Then ask: "What is your workspace path?" (e.g. `~/cv-workspace`)
+Wait for all three answers. Then:
 
-Wait for all three answers. Then create the application folder:
+- Check for a profile photo at `[workspace]/assets/profile-photo.jpg` (also try `.png`).
+  If found: note the path — it will be embedded in all HTML outputs.
+  If not found: tell the user "No profile photo found at assets/profile-photo.jpg — outputs will have an empty photo slot. Add the photo and name it profile-photo.jpg to include it."
+
+Then create the application folder:
 `[workspace]/applications/[company]-[role]-[date]/`
 
 Use today's date for [date] in YYYYMMDD format. Use the company name and role title
@@ -102,14 +107,32 @@ Save output as: `[workspace]/applications/[company]-[role]-[date]/company-brief.
 
 ---
 
-**Step 3 — Inspect the brand**
+**Step 3 — Inspect the brand (optional)**
 
+Ask me: **"Would you like to run the brand inspector to match your CV/CL style to the
+company's visual brand? Reply **yes** for brand-matched output, or **skip** to use a
+generic professional style."**
+
+Wait for my answer.
+
+**If yes:**
 Read `brand-inspector/brand-inspector-prompt.md` from `<!-- BEGIN PROMPT -->` to end.
-
 Follow those instructions using the company URL. Use Chrome MCP (Option A).
 Focus on: homepage, about page, careers page, and any press kit or design system link.
-
 Save output as: `[workspace]/applications/[company]-[role]-[date]/brand-brief.md`
+
+**If skip:**
+Create a minimal `brand-brief.md` in the application folder with this content:
+```markdown
+# Brand Brief
+Style: generic-professional
+Colors: no brand-specific colors — use neutral palette
+Typography: no brand fonts identified — use Inter (body) + appropriate heading font
+Design personality: Clean professional — whitespace-led, no decorative elements
+CL tone guidance: Professional and direct
+```
+Confirm to me: "Using generic professional style. You can run the brand inspector later
+by reading brand-inspector/brand-inspector-prompt.md."
 
 ---
 
@@ -242,6 +265,10 @@ Copy both files to the application folder:
 
 Apply brand color/font adaptations to both files now (update `:root` CSS variables).
 
+Set the photo path in both files: replace `{{PHOTO}}` with the relative path to the
+profile photo found in Step 0 (e.g. `../../assets/profile-photo.jpg`).
+If no photo was found, leave the `<img>` tag commented out.
+
 ---
 
 ### STEP 7 — Generate the CV
@@ -254,6 +281,7 @@ Fill in the file paths section using:
 - HTML_SKELETON: `[workspace]/applications/[company]-[role]-[date]/cv-output.html`
 - JOB_BRIEF: `[workspace]/applications/[company]-[role]-[date]/job-brief.md`
 - BRAND_BRIEF: `[workspace]/applications/[company]-[role]-[date]/brand-brief.md`
+- PHOTO_PATH: `[relative path to profile-photo.jpg from outputs/ folder, or empty if not found]`
 - APPLICATION_FOLDER: `[workspace]/applications/[company]-[role]-[date]/`
 - OUTPUTS_FOLDER: `[workspace]/outputs/`
 

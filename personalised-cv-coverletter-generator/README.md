@@ -30,6 +30,7 @@ no generic filenames, ever.
 **Step 1 — Run SETUP.md**
 Creates your personal workspace folder and copies the asset template files.
 Your workspace lives on your machine, outside this repo, and is never committed anywhere.
+Also prompts you to add your **profile photo** (`assets/profile-photo.jpg`) — it appears in all CV and cover letter headers automatically.
 
 **Step 2 — Fill in your asset files**
 Open `asset-setup/QUICKSTART.md` for the three paths to get started:
@@ -69,10 +70,11 @@ break point so you can resume without losing context.
 
 ## Asset library
 
-Your career data lives in seven files in your workspace `assets/` folder:
+Your career data lives in your workspace `assets/` folder:
 
 | File | Contents |
 |------|----------|
+| `profile-photo.jpg` | Your profile photo — referenced automatically in all CV and CL headers |
 | `work_experience.md` | Role history with unique role IDs (ROLE-001, etc.) |
 | `capabilities.md` | Capability and accomplishment entries, tagged and cross-referenced. Split into an INDEX (for fast Phase 1 selection) and ENTRIES (full content, loaded by CAP-ID in Phase 2) |
 | `competency_clusters.md` | Grouped skill areas with trigger keywords for job ad matching |
@@ -142,6 +144,16 @@ material in any language.
 - **Lazy asset loading** — capabilities are indexed separately from their full content.
   Phase 1 reads only the index to score and shortlist entries; Phase 2 loads only the
   selected entries. This keeps context lean without sacrificing quality.
+- **Profile photo by default** — all CV and CL HTML outputs include a circular profile
+  photo in the header. Place `profile-photo.jpg` in your assets folder once; it's used
+  in every application automatically.
+- **Brand inspector is optional** — you can choose to match your output to the company's
+  visual brand (recommended) or skip to a generic professional style. If you run the
+  inspector, you can also drop screenshots into `brand-brief-assets/` and describe what
+  to notice in each — giving the tool visual confirmation rather than inference.
+- **A4-paginated HTML output** — the CV uses explicit page divs (`.cv-page-brochure`
+  for page 1, `.cv-page-extended` for pages 2+) rather than CSS page-break hints.
+  This produces reliable pagination when printing to PDF from Chrome.
 - **Reusable templates and styles** — CV templates, CL templates, and HTML styles
   accumulate in a library. The selector checks the library before generating new.
 - **Seven-persona review** — ATS, HR Recruiter, Hiring Manager, Role Expert, CEO/CFO/Legal,

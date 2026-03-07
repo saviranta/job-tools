@@ -141,11 +141,14 @@ even before content is filled.
 - Hybrid: as specified in cv-template
 
 **Header section:**
+
+Always include the profile photo. The `{{PHOTO}}` slot is filled with the candidate's
+profile photo path at generation time. Do not comment it out.
+
 ```html
 <header class="cv-header" style="background-color: var(--color-header-bg);">
   <div class="header-photo-block">
-    <!-- Include photo slot only if cv-template says include photo -->
-    <!-- <img src="{{PHOTO}}" class="candidate-photo" alt=""> -->
+    <img src="{{PHOTO}}" class="candidate-photo" alt="{{CANDIDATE_NAME}}">
   </div>
   <div class="header-text-block">
     <h1 class="candidate-name">{{CANDIDATE_NAME}}</h1>
@@ -154,6 +157,104 @@ even before content is filled.
   </div>
 </header>
 ```
+
+Photo CSS (add to stylesheet):
+```css
+.candidate-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+/* For centered header layouts, center the photo above the name */
+/* For side-by-side layouts, float or flex the photo left of name text */
+```
+
+**A4 pagination — always required:**
+
+The CV HTML must use explicit page divs instead of relying on CSS page breaks.
+This ensures reliable pagination when printing to PDF from the browser.
+
+Structure the CV body as:
+- **Page 1** (`.cv-page-brochure`): header + scannable summary sections (profile,
+  competencies, experience timeline, personal/links footer). This page is capped
+  at A4 height when printed.
+- **Pages 2+** (`.cv-page-extended`): one div per printed page, each containing
+  the detailed role blocks for that page. Split role blocks across page divs
+  based on estimated content height — do not put all roles in one div.
+
+Page div CSS:
+```css
+.cv-page-brochure {
+  padding: var(--page-padding);
+  padding-top: 0;
+  max-width: 21cm;
+  margin: 0 auto;
+  min-height: 27cm;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-page-extended {
+  padding: var(--page-padding);
+  max-width: 21cm;
+  margin: 0 auto;
+  min-height: 29.7cm;
+  line-height: var(--line-height);
+}
+
+/* Footer pushed to bottom of page 1 */
+.cv-footer {
+  margin-top: auto;
+}
+```
+
+Print CSS additions (add inside `@media print`):
+```css
+/* Page 1: hard A4 height — clips overflow */
+.cv-page-brochure {
+  height: 29.7cm;
+  max-height: 29.7cm;
+  overflow: hidden;
+}
+
+/* Each extended page starts on a new sheet */
+.cv-page-extended {
+  break-before: page;
+  page-break-before: always;
+  min-height: unset;
+  height: 29.7cm;
+  overflow: hidden;
+}
+```
+
+HTML structure skeleton:
+```html
+<!-- PAGE 1 — BROCHURE -->
+<div class="cv-page-brochure">
+  <header class="cv-header">...</header>
+  <section class="cv-section cv-section--profile">...</section>
+  <section class="cv-section cv-section--competencies">...</section>
+  <section class="cv-section cv-section--timeline">...</section>
+  <footer class="cv-footer">...</footer>
+</div>
+
+<!-- PAGE 2 — EXTENDED (first batch of roles) -->
+<div class="cv-page-extended">
+  <h2 class="extended-section-title">Work Experience</h2>
+  <!-- role blocks here -->
+</div>
+
+<!-- PAGE 3 — EXTENDED (remaining roles, if needed) -->
+<div class="cv-page-extended">
+  <!-- role blocks here -->
+</div>
+```
+
+Note: the cv-generator will split role content across `.cv-page-extended` divs
+based on actual content length. The skeleton should include placeholder slots
+for at least two extended page divs: `{{EXTENDED_PAGE_2}}` and `{{EXTENDED_PAGE_3}}`.
 
 **Section structure** — generate one `<section>` block per section in the cv-template
 section list, in exact order. Each section:
@@ -207,10 +308,11 @@ section list, in exact order. Each section:
 - `structured`: clear visual separation between opening / bullets / closing
 - `narrative`: flowing paragraphs, no visual dividers between sections
 
-**Header** — matches cv-output.html exactly (same background, same fonts, same contact line).
-This is what makes the pair look like a set:
+**Header** — matches cv-output.html exactly (same background, same fonts, same contact line,
+same photo). Always include the profile photo — same `{{PHOTO}}` slot as the CV:
 ```html
 <header class="cl-header" style="background-color: var(--color-header-bg);">
+  <img src="{{PHOTO}}" class="candidate-photo" alt="{{CANDIDATE_NAME}}">
   <h1 class="candidate-name">{{CANDIDATE_NAME}}</h1>
   <p class="contact-line">{{CONTACT_LINE}}</p>
 </header>
@@ -316,6 +418,10 @@ Before returning the files, verify:
 - [ ] Both files import the same Google Fonts
 - [ ] Both files define identical CSS custom properties at `:root`
 - [ ] Print CSS is present in both with full-bleed header handling
+- [ ] `{{PHOTO}}` slot present and active (not commented out) in both CV and CL headers
+- [ ] `.candidate-photo` CSS class defined with `border-radius: 50%` and `object-fit: cover`
+- [ ] CV uses `.cv-page-brochure` + one or more `.cv-page-extended` divs (A4 pagination)
+- [ ] Print CSS includes `height: 29.7cm` on `.cv-page-brochure` and `break-before: page` on `.cv-page-extended`
 - [ ] All slots from the README slot reference are present
 - [ ] Section order in cv-output.html matches cv-template section list exactly
 - [ ] CL body slots match the cl-template length_style
