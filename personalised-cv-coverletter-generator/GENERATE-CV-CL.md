@@ -45,6 +45,11 @@ company website, or any input is in another language, translate all extracted co
 to English before producing any brief or output file. The CV and cover letter are
 generated in English. Inform the user if translation was performed.
 
+**Web access rule:** All live web access (job listings, company sites, brand analysis)
+uses Chrome MCP only. Never substitute WebFetch, web search, or any other web access
+method without an explicit request from the user in the chat. If Chrome MCP is
+unavailable, stop and tell the user — do not silently fall back to another method.
+
 **Start by asking me these questions:**
 
 1. "What is the job listing URL? (Or paste the job description text if you don't have a URL)"
@@ -62,6 +67,33 @@ Then create the application folder:
 
 Use today's date for [date] in YYYYMMDD format. Use the company name and role title
 (lowercase, hyphens) to form the folder name. Confirm the folder path before proceeding.
+
+---
+
+### CHROME MCP CHECK — Required before any web analysis
+
+Before running Steps 1–3, verify that Chrome MCP is connected:
+
+Call `mcp__claude-in-chrome__tabs_context_mcp`. If it succeeds, note the available
+tab IDs and proceed to Steps 1–3.
+
+If it fails or returns an error, stop immediately and tell the user:
+
+```
+Chrome MCP is required for this workflow. Steps 1–3 (job listing, company, and brand
+analysis) all read live web pages and cannot run without it.
+
+To connect:
+  1. Open Chrome with the Claude in Chrome extension installed and active
+  2. The extension icon should be visible in the Chrome toolbar
+  3. Restart this Claude Code session once Chrome is ready
+
+Alternatively: if you have already read the job listing and can paste the full text,
+I can use that for Step 1 — but Chrome MCP is still required for the company analysis
+(Step 2) and brand inspection (Step 3).
+```
+
+Do not proceed until Chrome MCP is confirmed working.
 
 ---
 
@@ -90,8 +122,9 @@ cover letter generator and reviewer use as anchors.
 Read `job-listing-analyzer/job-listing-prompt.md` from `<!-- BEGIN PROMPT -->` to end.
 
 Follow those instructions using the job URL or pasted text provided.
-If a URL was given, use Chrome MCP to read it directly (Option B in that file).
-If text was pasted, use that (Option A).
+If a URL was given, use Chrome MCP to read it (Option B in that file).
+If text was pasted by the user, use that as the source (Option A in that file).
+Do not attempt to fetch the URL by any other means.
 
 Save output as: `[workspace]/applications/[company]-[role]-[date]/job-brief.md`
 
